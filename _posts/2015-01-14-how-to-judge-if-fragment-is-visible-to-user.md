@@ -13,6 +13,7 @@ description: 本篇博客说明了如何在fragment的不同使用环境下判�
 最近在开发中遇到了一个问题。我们的app需要统计用户的页面路径，也就是用户使用各个页面的情况。这就需要在不同的页面跳入和跳出时记录下来。但是我们的app主要是由Fragment构成的。而在不同的使用情况下，判断Fragment是否可见的方法是不一样的。下面对这些不同的使用情况分开分析。
 
 ## 不同的情况
+
 ### 在Activity中直接使用
 这种情况是最简单的，也就是在Activity使用XML引入，或者使用FragmentManager 的addFragment或者replaceFrament 动态载入。在这种情况下，只要监听Fragment的onResume和onPause方法就能够判断其显隐。在onResume和onPause中间是对用户可见的.
 
