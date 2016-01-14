@@ -31,8 +31,8 @@ description: 本篇博客说明了如何在fragment的不同使用环境下判�
 ### 使用show和hide来显隐的Fragment
 FragmentManager除了addFragment和replaceFragment之外还有showFragment和hideFragment来做Fragment的显隐，这样可以提生页面切换的速度，是一种用空间换时间的方式。但是这样使用的Fragment在被hide的时候是不会调用onPause方法的。因为它只是在屏幕中不可见了，但是没有Pause。这时候我们需要监听onHiddenChanged方法
 
-	@Override
-  	public void onHiddenChanged(boolean hidden) {
+    @Override
+    public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
     	if(hidden){
     		//TODO now visible to user
