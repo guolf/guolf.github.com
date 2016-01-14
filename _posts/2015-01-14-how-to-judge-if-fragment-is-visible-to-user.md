@@ -1,11 +1,11 @@
 ---
-layout: post   
-title: [Android develop]: 如何判断Fragment是否对用户可见 
-date: 2016-1-14   
-categories: blog   
-tags: [Development,Android]   
+layout: post
+title: [Android develop]: 如何判断Fragment是否对用户可见
+date: 2016-1-14
+categories: blog
+tags: [Development,Android]
 description: 本篇博客说明了如何在fragment的不同使用环境下判断其是否对用户可见。
----   
+---
 <br/>
 <br/>
    
@@ -14,24 +14,22 @@ description: 本篇博客说明了如何在fragment的不同使用环境下判�
 
 ## 不同的情况
 ### 在Activity中直接使用
-这种情况是最简单的，也就是在Activity使用XML引入，或者使用FragmentManager 的addFragment或者replaceFrament 动态载入。在这种情况下，只要监听Fragment的onResume和onPause方法就能够判断其显隐。在onResume和onPause中间是对用户可见的。   
-```java
-	@Override
+这种情况是最简单的，也就是在Activity使用XML引入，或者使用FragmentManager 的addFragment或者replaceFrament 动态载入。在这种情况下，只要监听Fragment的onResume和onPause方法就能够判断其显隐。在onResume和onPause中间是对用户可见的.
+
+    @Override
     public void onResume() {
         super.onResume();
         //TODO now visible to user
     }
-
     @Override
     public void onPause() {
         super.onPause();
         //TODO now invisible to user
     }
-```
 
 ### 使用show和hide来显隐的Fragment
 FragmentManager除了addFragment和replaceFragment之外还有showFragment和hideFragment来做Fragment的显隐，这样可以提生页面切换的速度，是一种用空间换时间的方式。但是这样使用的Fragment在被hide的时候是不会调用onPause方法的。因为它只是在屏幕中不可见了，但是没有Pause。这时候我们需要监听onHiddenChanged方法
-```java
+
 	@Override
   	public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
@@ -41,12 +39,12 @@ FragmentManager除了addFragment和replaceFragment之外还有showFragment和hid
     		//TODO now invisible to user
     	}
     }
-```
+    
 但是我们需要注意一点，那就是，如果用户直接按home键退出了，我们的程序也没有对按home键事件进行监听，在按home键时调用hideFragment，那么onHiddenChanged事实上没有被调用，反而是onPause被调用了。所以我们需要针对这样的情况做特殊的处理。比如在home键退出时显示调用一下hideFragment或者在onPause中也发信号说本Fragment不可见了，这都是可以的。
 
 ### 在ViewPager中的Fragment
 现在安卓市场上基本上的app都会做tab页，而tab页基本都是通过android自带的ViewPager实现的。ViewPager有这样一个特点，当滑到某一个Tab时，它会同时加载这个tab的左右两个tab页，比如我从1页面切换到了2页面，那么3页面的onResume也被调用了，但是3页面其实对用户是不可见的。这时候我们就需要监听setUserVisibleHint来判断到底对用户是否可见。
-```java
+
 	@Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
@@ -56,11 +54,11 @@ FragmentManager除了addFragment和replaceFragment之外还有showFragment和hid
 			//TODO now it's invisible to user
 		}
     }
-```
+
 
 但是与第二条类似，我们依然不能完全依赖setUserVisibleHint这个方法来判断是否ViewPager中的页面是否对用户可见。因为该方法只有在Fragment切换的时候被调用。比如我从一个含有ViewPager的Actvity跳转到另一个activity，ViewPager中的Fragment的 setUserVisibleHint方法是不会被调用的，只能通过onPause来判断。进入该Activity原理类似。那么怎么办呢，我们需要结合setUserVisibleHint和onResume和onPause。
 
-```java
+
 	@Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
@@ -86,7 +84,7 @@ FragmentManager除了addFragment和replaceFragment之外还有showFragment和hid
 		//TODO give the signal that the fragment is invisible
     }
 
-```
+
 需要注意以上方法并不完美，Fragment不可见的信号会被多次发送。目前还没找到一个只发送一次的方法。如果读者有更好的解决方案，欢迎跟我交流。
 
 
