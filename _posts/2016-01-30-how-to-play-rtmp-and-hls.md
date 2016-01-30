@@ -1,0 +1,113 @@
+---
+layout: post
+title: [develop]: 如何在网页端和移动端播放rtmp和hls视频流
+date: 2016-1-14
+categories: blog
+tags: [Development,rtmp,hls,player]
+description: 本篇博客主要介绍在各端实现hls和rtmp流的播放
+---
+<br/>
+<br/>
+
+# 背景
+我们已经在[视频直播解决方案](http://sixwolf.net/2016/1/29/live-solution)讨论了如何实现自己的直播平台以及[如何实现从安卓设备上推流到服务器](http://sixwolf.net/2016/01/30/how-to-live-in-android)。那么我们还剩下最后一波，就是如何将精彩的视频内容展现出来，在本文中将会介绍如何在网页端和安卓设备上实现直播的播放。
+
+# 安卓设备上的播放——Vitamio
+安卓设备3.0以上原生支持hls，但是不支持rtmp，为了统一以及低版本兼容，我们使用第三方的一个播放器库——[vitamio](https://github.com/yixia/VitamioBundle)。
+下面是实例代码
+
+
+    public class PlayerActivity extends AppCompatActivity {
+
+    private static final String KEY_PATH = "key_path";
+
+
+    @Bind(R.id.vitamio_videoView)
+    VideoView vVideoView;
+
+
+    public static Intent makeIntent(String rtmpPath){
+        Intent intent = new Intent(App.getContext(), PlayerActivity.class);
+        intent.putExtra(KEY_PATH, rtmpPath);
+        return intent;
+    }
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (!LibsChecker.checkVitamioLibs(this))
+            return;
+        setContentView(R.layout.activity_player);
+        ButterKnife.bind(this);
+        String path = getIntent().getStringExtra(KEY_PATH);
+        initVideo(path);
+    }
+
+
+    private void initVideo(String path){
+        HashMap<String, String> options = new HashMap<>();
+        options.put("rtmp_live", "1");
+        vVideoView.setVideoURI(Uri.parse(path), options);
+        vVideoView.setMediaController(new MediaController(this));
+        vVideoView.requestFocus();
+
+        vVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mediaPlayer) {
+                mediaPlayer.setPlaybackSpeed(1.0f);
+            }
+        });
+    }
+}
+
+该Activity能够接收一个rtmp或者hls的流地址播放。
+
+
+# hls播放
+如果仅需要在移动设备的WebView上播放，我们可以选择使用html中嵌入hls播放。如下html能够在所有Safari或者安卓3.0以上的WebView上播放。这样就不需要使用第三方的播放器。
+
+    <html lang="en">
+        <head>
+           <meta charset=utf-8/>
+        </head>
+        <body>
+            <div id='player'>
+               <video width="640" height="320" controls>
+                    <source src="http://10.10.5.119/live/livestream.m3u8" type="application/x-mpegURL">
+               </video>
+            </div>
+        </body>
+    </html>
+    
+# VideoJS
+如果我们要让我们的网页支持在所有浏览器上播放，我们就需要使用第三方的播放器。VideoJs是一个较好的播放器库，完全免费，不像JWPlayer一样需要付费才能使用一些高级功能。下面是一个播放的例子。你可以将source标签下的src换成你自己的直播流地址。需要注意的是rtmp流的type是rtmp/flv（flv 跟推流的时候FFmpegFrameRecorder设置的format有关）, hls 的type是application/x-mpegURL。
+<html>
+    <head>
+  <link href="http://vjs.zencdn.net/5.5.3/video-js.css" rel="stylesheet">
+
+  <!-- If you'd like to support IE8 -->
+  <script src="http://vjs.zencdn.net/ie8/1.1.1/videojs-ie8.min.js"></script>
+
+
+</head>
+
+```
+<body>
+
+  <h1>康康的直播间</h1>
+  <video id="my-video" class="video-js" controls preload="auto" width="640" height="264"
+  poster="https://img.alicdn.com/imgextra/i2/754328530/TB2FpxhkXXXXXa5XXXXXXXXXXXX_!!754328530.jpg" data-setup="{}">
+    <source src="rtmp://10.10.5.119/live/livestream" type="rtmp/flv">
+    <!-- 如果上面的rtmp流无法播放，就播放hls流 -->
+    <source src="http://10.10.5.119/live/livestream.m3u8" type='application/x-mpegURL'>
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a web browser that
+      <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+    </p>
+  </video>
+
+  <script src="http://vjs.zencdn.net/5.5.3/video.js"></script>
+</body>
+</html>
+```
