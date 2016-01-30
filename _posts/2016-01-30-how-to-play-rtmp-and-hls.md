@@ -61,7 +61,7 @@ description: 本篇博客主要介绍在各端实现hls和rtmp流的播放
     }
 }
 
-该Activity能够接收一个rtmp或者hls的流地址播放。
+该Activity能够接收一个rtmp或者hls的流地址播放。完整项目地址 [RtmpHlsPlayer](https://github.com/beautifulSoup/RtmpHlsPlayer/tree/master)
 
 
 # hls播放
