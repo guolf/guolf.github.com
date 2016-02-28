@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [Android develop]: 学习RxJava和RxAndroid的一些好的学习资料（亲自验证）
+title: 学习RxJava和RxAndroid的一些好的学习资料（亲自验证）
 date: 2016-1-14
 categories: blog
 tags: [Development,Android]

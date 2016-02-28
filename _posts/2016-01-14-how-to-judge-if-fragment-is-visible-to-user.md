@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [Android develop]: 如何判断Fragment是否对用户可见
+title: 如何判断Fragment是否对用户可见
 date: 2016-1-14
 categories: blog
 tags: [Development,Android]
