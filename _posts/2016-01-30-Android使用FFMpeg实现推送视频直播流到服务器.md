@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Android使用FFMpeg实现推送视频直播流到服务器
-date: 2016-1-14
+date: 2016-1-30
 categories: blog
 tags: [Development,rtmp,hls,live-stream]
 description: 本篇博客主要介绍视频直播源的采集中，如何实现在Android 设备上推送视频流到服务器
