@@ -2,7 +2,7 @@
 layout: page
 title: "About"
 description: "Live for myself"
-header-img: "img/green.jpg"
+header-img: "https://img.alicdn.com/imgextra/i4/754328530/TB2J6n1aVXXXXakXFXXXXXXXXXX-754328530.jpg"
 ---
 
 
@@ -12,9 +12,9 @@ header-img: "img/green.jpg"
 
 Hello, I'm Klojure, a chinese guy. I'm a programmer. I love ACG. I want to do some my own thing in 2016, and happy when the ending comes.
 
-##下面开始写中文 
-   
-   
+##下面开始写中文
+
+
 ###2016年我想做的事：
 
 - 和朋友来一段说走就走的旅行，年轻的时候不想留下遗憾。

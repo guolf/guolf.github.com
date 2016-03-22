@@ -2,7 +2,7 @@
 layout: page
 title: "Archive"
 description: "Sadly, I don't have any archive. I hope I can add some in the page in 2016!"
-header-img: "img/orange.jpg"
+header-img: "https://img.alicdn.com/imgextra/i4/754328530/TB2wkeKdpXXXXcIXXXXXXXXXXXX-754328530.jpg"
 ---
 
 
