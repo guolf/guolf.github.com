@@ -1,27 +1,27 @@
 # Site settings
-title: In Coding
-header-img: "https://img.alicdn.com/imgextra/i4/754328530/TB2GEa3cVXXXXbUXpXXXXXXXXXX-754328530.jpg"
+title: 52dev
+#header-img: "http://guolingfa.cn/Content/Themes/green/images/logo.jpg"
 tagline: "cn"
 description: "A chinese man, detemined in Android and Python"
 baseurl: ""
-url: "http://sixwolf.net"
+url: "http://blog.52dev.net"
 
 # About/contact
 owner:
-  name: " Klojure"
-  email: tanglikang@163.com
-  bio: "Coding Life"
+  name: "guolf"
+  email: guolingfa#gmail.com
+  bio: "52dev"
 
 # Data
-gavatar: https://img.alicdn.com/imgextra/i2/754328530/TB2.khVjFXXXXagXXXXXXXXXXXX_!!754328530.jpg
+gavatar: http://guolingfa.cn/Content/Themes/green/images/logo.jpg
 favicon: img/logo.png
 
-douban_username:  汤利康
-twitter_username: SuperTwoDog
-github_username: beautifulSoup
-facebook_username: 汤利康
-weibo_username: 不知菌
-zhihu_username: 汤利康
+douban_username: 
+twitter_username: guolingfa
+github_username: guolf
+facebook_username: guolingfa
+weibo_username: 
+zhihu_username: guolingfa
 
 # Build settings
 # use Github Flavored Markdown !important
@@ -43,21 +43,23 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      author: "Klojure"
-      header-img: "https://img.alicdn.com/imgextra/i4/754328530/TB2GEa3cVXXXXbUXpXXXXXXXXXX-754328530.jpg" # We don't want posts without a header image, that whould mean white on white
+      author: "guolf"
+      #header-img: "https://img.alicdn.com/imgextra/i4/754328530/TB2GEa3cVXXXXbUXpXXXXXXXXXX-754328530.jpg" 
 
 # Comments
 comments :
   provider : duoshuo
   duoshuo :
-    short_name : Klojure
+    short_name : guolf
   disqus :
-      short_name : Klojure
+      short_name : guolf
 
 # Analytics and webmaster tools stuff goes here
 google_analytics:
 google_verify:
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
 bing_verify:
+
+baidu_tongji: 107002b9b817d9ae09d758f47e7023dc
 
 # Links to include in footer navigation
