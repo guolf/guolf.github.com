@@ -47,12 +47,8 @@ defaults:
       #header-img: "https://img.alicdn.com/imgextra/i4/754328530/TB2GEa3cVXXXXbUXpXXXXXXXXXX-754328530.jpg" 
 
 # Comments
-comments :
-  provider : duoshuo
-  duoshuo :
-    short_name : guolf
-  disqus :
-      short_name : guolf
+duoshuo: dev52
+
 
 # Analytics and webmaster tools stuff goes here
 google_analytics:
@@ -60,6 +56,6 @@ google_verify:
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
 bing_verify:
 
-baidu_tongji: 107002b9b817d9ae09d758f47e7023dc
+baidu_tongji: f125f5d746b925ee79560da348966197
 
 # Links to include in footer navigation
