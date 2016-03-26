@@ -1,7 +1,7 @@
 ---
 layout: post
 title: linux利用ssh key 免密码登陆
-date: 2015-10-23
+date: 2015-08-26
 categories: blog
 author: guolf
 tags: [linux, ssh]
