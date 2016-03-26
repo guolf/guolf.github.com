@@ -1,0 +1,66 @@
+---
+layout: post
+title: nginx反向代理
+date: 2016-03-25
+categories: blog
+author: guolf
+tags: [nginx,tomcat]
+description: 利用nginx反向代理实现iis\tomcat共享80端口
+
+---
+
+## 网站部署
+IIS网站绑定端口801，Tomcat绑定端口8080，将nginx目录下的nginx.conf文件修改内容如下
+
+```
+#user  nobody;
+worker_processes  1;
+#error_log  logs/error.log;
+#error_log  logs/error.log  notice;
+#error_log  logs/error.log  info;
+#pid        logs/nginx.pid;
+events {
+    worker_connections  1024;
+}
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+    #access_log  logs/access.log  main;
+    sendfile        on;
+    #tcp_nopush     on;
+    keepalive_timeout  65;
+    #gzip  on;
+    server {
+        listen       80;
+        # 绑定域名
+        server_name  www.guolingfa.cn;
+        location / {
+        	# 目标地址
+       		proxy_pass   http://localhost:801;
+        }
+    }
+	server {
+        listen       80;
+        server_name  guolingfa.cn;
+        location / {
+       		proxy_pass   http://localhost:801;
+        }
+    }
+	server {
+        listen       80;
+        server_name  test.guolingfa.cn;
+        location / {
+       		proxy_pass   http://localhost:8080;
+        }
+    }
+}
+```
+
+## 启动nginx
+
+```
+# 启动nginx 
+start nginx
+# 停止nginx
+nginx -s stop
+```

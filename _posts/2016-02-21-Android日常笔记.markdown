@@ -1,0 +1,42 @@
+---
+layout: post
+title: Android日常笔记
+date: 2016-03-14
+categories: blog
+author: guolf
+tags: [android]
+description: Android日常笔记
+
+---
+
+## drawableRight添加单击事件
+
+```
+mTelnum.setOnTouchListener(new View.OnTouchListener() {
+	@Override
+	public boolean onTouch(View v, MotionEvent event) {
+		if(event.getAction()== MotionEvent.ACTION_UP) {
+			Drawable drawableRight = ((EditText) v).getCompoundDrawables()[2];
+				if (drawableRight != null && event.getRawX() >= (v.getRight() - drawableRight.getBounds().width())){
+					Toast.makeText(TestActivity.this, "click...", Toast.LENGTH_SHORT).show();
+				}
+			}
+			return false;
+		}
+});
+        
+```
+
+## pull解析xml包含&会报错
+
+```
+xmlStr.replace("&","&amp;")
+```
+
+## 隐藏底部虚拟导航条
+```
+getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+```
+
+## 魅族
+Flyme OS 4.5.0.2Q版本运行cordova应用，点击下拉菜单会崩溃。将系统版本升级即可。

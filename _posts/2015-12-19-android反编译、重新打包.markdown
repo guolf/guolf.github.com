@@ -1,0 +1,65 @@
+---
+layout: post
+title: Android反编译，重新打包
+date: 2015-10-23
+categories: blog
+author: guolf
+tags: [android, apktool,dex2jar,jd-gui]
+description: 使用apktoo反编译、重新打包，dex2jar查看源码。
+
+---
+## Android反编译、重新打包
+
+### 安装apktool 
+
+参考[http://ibotpeaches.github.io/Apktool/install/](http://ibotpeaches.github.io/Apktool/install/)
+
+
+```
+# 反编译
+$ apktool d testapp.apk
+I: Using Apktool 2.0.0 on testapp.apk
+I: Loading resource table...
+I: Decoding AndroidManifest.xml with resources...
+I: Loading resource table from file: 1.apk
+I: Regular manifest package...
+I: Decoding file-resources...
+I: Decoding values */* XMLs...
+I: Baksmaling classes.dex...
+I: Copying assets and libs...
+```
+
+```
+# 反编译修改后重新打包
+$ apktool b test
+I: Using Apktool 2.0.1 on test
+I: Checking whether sources has changed...
+I: Smaling smali folder into classes.dex...
+I: Checking whether resources has changed...
+I: Building resources...
+I: Building apk file...
+I: Copying unknown files/dir..
+# 重新签名
+$ jarsigner -keystore /Users/guolf/.android/debug.keystore 
+-storepass android -keypass android test.apk androiddebugkey 
+```
+
+
+### 安装dex2jar
+
+#### 下载安装文件
+[https://sourceforge.net/projects/dex2jar/files/](https://sourceforge.net/projects/dex2jar/files/)
+
+#### 解压到指定位置
+```
+unzip -x dex2jar-version.zip -d /home/username
+```
+
+#### 反编译
+
+```
+# 将apk反编译成.jar文件，然后可使用jd-gui打开
+sh /home/username/dex2jar-2.0/d2j-dex2jar.sh /home/username/someApk.apk
+```
+
+使用jd-gui查看源码，下载地址[http://jd.benow.ca/](http://jd.benow.ca/)

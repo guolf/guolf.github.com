@@ -1,0 +1,77 @@
+---
+layout: post
+title: mac日常笔记
+date: 2016-03-14
+categories: blog
+author: guolf
+tags: [mac]
+description: mac日常笔记
+
+---
+
+## 批量转换文件编码
+
+cd进入目标文件，执行命令将目录下所有文件转换成UTF-8编码，并保存到指定文件夹
+
+```
+find . -type f -exec bash -c 'iconv -f GB18030 "{}" 1>/dev/null 2>/dev/null && iconv -f GB18030 -t utf-8 "{}" > /Users/guolf/Documents/workspace/test/src/"{}"' \; 
+```
+
+## 查找占用端口
+
+```
+# 将端口替换成所需,将会出现占用端口进程信息(lsof -i tcp:port)
+lsof -i tcp:8080
+# 找到占用端口进程pid，使用kill命令杀掉该进程 kill pid
+kill 1234
+```
+
+## 使用vi将UTF bom格式转无bom格式
+
+```
+:set nobomb
+:wq
+```
+
+## mac自带Apache
+
+```
+#查看版本
+sudo apachectl -v
+#启动
+sudo apachectl start
+#网站目录
+open /Library/WebServer/Documents/
+```
+
+## 添加文件可执行权限
+```
+chmod a+x ./文件名
+```
+
+## 使用ntfs-3g实现mac的ntfs写权限
+
+```
+Remove osxfuse if installed via homebrew:
+> brew uninstall osxfuse
+Install osxfuse binary and choose to install the MacFUSE compatibility layer:
+http://sourceforge.net/projects/osxfuse/files/latest/download?source=files
+Reboot (optional but recommended by osxfuse)
+Install ntfs-3g via homebrew:
+> brew update && brew install ntfs-3g
+
+or  try
+
+brew install Caskroom/cask/osxfuse then brew install homebrew/fuse/ntfs-3g
+
+Link mount_ntfs:
+> sudo mv /sbin/mount_ntfs /sbin/mount_ntfs.original
+> sudo ln -s /usr/local/Cellar/ntfs-3g/2015.3.14/sbin/mount_ntfs /sbin/mount_ntfs
+The output of the following should be as below:
+> ls -l /sbin/mount_ntfs*
+/sbin/mount_ntfs -> /usr/local/Cellar/ntfs-3g/2014.2.15/sbin/mount_ntfs
+/sbin/mount_ntfs.original -> /System/Library/Filesystems/ntfs.fs/Contents/Resources/mount_ntfs
+Reboot and voila
+```
+
+
