@@ -13,7 +13,7 @@ layout: default
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-	           <!-- <div class="Tags">
+	               <!--<div class="Tags">
                         {% for tag in page.tags %}
                         <a class="tag" href="/Tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>
                         {% endfor %}
@@ -141,6 +141,13 @@ var duoshuoQuery = {short_name:"{{ site.duoshuo }}"};
         anchors.add().remove('.intro-header h1').remove('.subheading');
     })
 </script>
+<!-- Highlight.js -->
+<script>
+    async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js",function(){
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+<link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
 <style>
     /* place left on bigger screen */
     @media all and (min-width: 800px) {

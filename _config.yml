@@ -46,6 +46,12 @@ defaults:
       author: "guolf"
       #header-img: "https://img.alicdn.com/imgextra/i4/754328530/TB2GEa3cVXXXXbUXpXXXXXXXXXX-754328530.jpg" 
 
+kramdown:
+  auto_ids: true
+
+gems :
+  - jekyll-paginate
+
 # Comments
 duoshuo: dev52
 

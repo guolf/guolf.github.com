@@ -33,11 +33,11 @@ header-img: "https://img.alicdn.com/imgextra/i1/754328530/TB2w_9RdpXXXXbxXXXXXXX
 {% endfor %}
 </ul>
 
-<script src="/media/js/jquery.tagcloud.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/jquery.tagcloud.js" type="text/javascript" charset="utf-8"></script>
 <script language="javascript">
 $.fn.tagcloud.defaults = {
-    size: {start: 1, end: 1, unit: 'em'},
-      color: {start: '#f8e0e6', end: '#ff3333'}
+	size: {start: 14, end: 18, unit: 'pt'},
+	color: {start: '#cde', end: '#f52'}
 };
 
 $(function () {

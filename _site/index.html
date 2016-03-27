@@ -15,14 +15,10 @@
     <!-- Icons -->
   <link rel="shortcut icon" href="img/logo.ico">
 
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="/css/52dev.min.css">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/clean-blog.css">
-
-    <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="/css/syntax.css">
+    <script src="/js/52dev.min.js "></script>
 
     <!-- Custom Fonts -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -35,16 +31,6 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "//hm.baidu.com/hm.js?107002b9b817d9ae09d758f47e7023dc";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
 
 </head>
 
@@ -85,7 +71,7 @@
                 </li>
                 
                 <li>
-                    <a href="/milestone/">milestone</a>
+                    <a href="/resume/">resume</a>
                 </li>
                 
                 <li>
@@ -120,8 +106,196 @@
 	<div class="row">
 		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 			
+<div class="post-preview">
+    <a href="/2016/03/27/Android%E5%BA%94%E7%94%A8%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91%E4%B9%8B%E6%BA%90%E7%A0%81%E5%AE%89%E5%85%A8/">
+        <h2 class="post-title">
+            Android应用安全开发之源码安全
+        </h2>
+        
+        <div class="post-content-preview">
+            
+本文转载自乌云知识库-移动安全
+
+简介
+Android apk很容易通过逆向工程进行反编译，从而是其代码完全暴露给攻击者，使apk面临破解，软件逻辑修改，插入恶意代码，替换广告商ID等风险。我们可以采用以下方法对apk进行保护.
+
+混淆保护
+
+混淆是一种用来隐藏程序意图的技术，可以增加代码阅...
+        </div>
+    </a>
+    <p class="post-meta">Posted by guolf on March 27, 2016</p>
+</div>
+
+<hr>
+
+<div class="post-preview">
+    <a href="/blog/2016/03/25/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">
+        <h2 class="post-title">
+            nginx反向代理
+        </h2>
+        
+        <div class="post-content-preview">
+            网站部署
+IIS网站绑定端口801，Tomcat绑定端口8080，将nginx目录下的nginx.conf文件修改内容如下
+
+#user  nobody;
+worker_processes  1;
+#error_log  logs/error.log;
+#error_log  logs/err...
+        </div>
+    </a>
+    <p class="post-meta">Posted by guolf on March 25, 2016</p>
+</div>
+
+<hr>
+
+<div class="post-preview">
+    <a href="/blog/2016/03/14/mac%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/">
+        <h2 class="post-title">
+            mac日常笔记
+        </h2>
+        
+        <div class="post-content-preview">
+            批量转换文件编码
+
+cd进入目标文件，执行命令将目录下所有文件转换成UTF-8编码，并保存到指定文件夹
+
+find . -type f -exec bash -c 'iconv -f GB18030 "{}" 1&gt;/dev/null 2&gt;/dev/null &amp;&amp; i...
+        </div>
+    </a>
+    <p class="post-meta">Posted by guolf on March 14, 2016</p>
+</div>
+
+<hr>
+
+<div class="post-preview">
+    <a href="/blog/2016/02/21/Android%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/">
+        <h2 class="post-title">
+            Android日常笔记
+        </h2>
+        
+        <div class="post-content-preview">
+            drawableRight添加单击事件
+
+mTelnum.setOnTouchListener(new View.OnTouchListener() {
+	@Override
+	public boolean onTouch(View v, MotionEvent event) {
+		if(e...
+        </div>
+    </a>
+    <p class="post-meta">Posted by guolf on February 21, 2016</p>
+</div>
+
+<hr>
+
+<div class="post-preview">
+    <a href="/blog/2015/12/19/android%E5%8F%8D%E7%BC%96%E8%AF%91-%E9%87%8D%E6%96%B0%E6%89%93%E5%8C%85/">
+        <h2 class="post-title">
+            Android反编译，重新打包
+        </h2>
+        
+        <div class="post-content-preview">
+            Android反编译、重新打包
+
+安装apktool
+
+参考http://ibotpeaches.github.io/Apktool/install/
+
+# 反编译
+$ apktool d testapp.apk
+I: Using Apktool 2.0.0 on testapp.apk
+I:...
+        </div>
+    </a>
+    <p class="post-meta">Posted by guolf on December 19, 2015</p>
+</div>
+
+<hr>
+
+<div class="post-preview">
+    <a href="/blog/2015/08/26/ssh-key-login/">
+        <h2 class="post-title">
+            linux利用ssh key 免密码登陆
+        </h2>
+        
+        <div class="post-content-preview">
+            利用ssh key验证登陆Linux服务器
+### 生成SSH Key
+
+创建RSA Key Pair
+
+ssh-keygen -t rsa
+
+
+
+输入key保存位置
+Enter file in which to save the key (/home/demo/.ssh/id_rsa):
+
+...
+        </div>
+    </a>
+    <p class="post-meta">Posted by guolf on August 26, 2015</p>
+</div>
+
+<hr>
+
+<div class="post-preview">
+    <a href="/blog/2015/08/26/AOP%E6%A1%86%E6%9E%B6Dexposed%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3/">
+        <h2 class="post-title">
+            AOP框架Dexposed使用详解
+        </h2>
+        
+        <div class="post-content-preview">
+            典型的使用场景
+
+
+  AOP编程
+  插桩（例如测试，性能监控等）
+  在线热更新，修复严重的，紧急的或者安全性的bug
+  SDK hooking以提供更好的开发体验
+
+
+如何集成
+
+集成方式很简单，直接dexposed aar添加到您的项目作为编译库，它包含了从“dexposed”目录中...
+        </div>
+    </a>
+    <p class="post-meta">Posted by guolf on August 26, 2015</p>
+</div>
+
+<hr>
+
+<div class="post-preview">
+    <a href="/blog/2015/02/03/%E5%88%A9%E7%94%A8Github-+-Jekyll-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+        <h2 class="post-title">
+            利用Github + Jekyll 搭建个人博客
+        </h2>
+        
+        <div class="post-content-preview">
+            利用Github + Jekyll 搭建个人博客
+
+我写这篇文章的目的是记录本博客的搭建过程，自己从零开始逐步搭建起来了GitHub Pages，其中借鉴了很多的博客和模版，稍后会在后面列出，也为没有用过gihub和jekyll的童鞋提供一点帮助。
+
+学习使用github网页的最好办法就是cl...
+        </div>
+    </a>
+    <p class="post-meta">Posted by guolf on February 3, 2015</p>
+</div>
+
+<hr>
+
 
 <!-- Pager -->
+
+<ul class="pager">
+    
+    
+    <li class="next">
+        <a href="/page2">Older Posts &rarr;</a>
+    </li>
+    
+</ul>
 
 
 		</div>
@@ -201,32 +375,20 @@
         </div>
     </div>
 </footer>
-
-<link rel="stylesheet" href="/css/backtop.css">  <!-- Back Top -->
-<script type="text/javascript" src="/js/backtop.js"></script>  <!-- Back Top -->
-
 <div id="back-top">
   <a href="#top" title="回到顶部"></a>
 </div>
 
-<!-- jQuery -->
-<script src="/js/jquery.min.js "></script>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="/js/bootstrap.min.js "></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="/js/clean-blog.min.js "></script>
-
-
-
-<!-- Highlight.js -->
 <script>
-    async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js",function(){
-        hljs.initHighlightingOnLoad();
-    })
-</script>
-<link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?f125f5d746b925ee79560da348966197";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
 
 
 </body>

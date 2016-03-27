@@ -5,10 +5,22 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         uglify: {
             main: {
-                src: 'js/<%= pkg.name %>.js',
+                src: ['js/jquery.min.js','js/bootstrap.min.js','js/backtop.js','js/jquery.tagcloud.js'],
                 dest: 'js/<%= pkg.name %>.min.js'
             }
         },
+        concat: {
+                css : {
+                    src: ['css/backtop.css','css/bootstrap.min.css','css/syntax.css','css/52dev.css'],
+                    dest: 'css/all.css'
+                }
+            },
+        cssmin: {
+                css: {
+                    src: ['css/all.css'],
+                    dest: 'css/<%= pkg.name %>.min.css'
+                }
+            },
         less: {
             expanded: {
                 options: {
@@ -67,8 +79,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-banner');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-css');
 
     // Default task(s).
-    grunt.registerTask('default', ['uglify', 'less', 'usebanner']);
+    grunt.registerTask('default', ['uglify', 'less','concat','cssmin','usebanner']);
 
 };

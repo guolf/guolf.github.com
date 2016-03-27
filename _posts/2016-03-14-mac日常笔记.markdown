@@ -74,4 +74,8 @@ The output of the following should be as below:
 Reboot and voila
 ```
 
+## Android设备管家
+
+[AirDroid](https://www.airdroid.com/zh-cn/)是最好用的安卓设备管家，在电脑可以接收设备的通知、回复短信，电脑与设备高效互传文件，AirMirror更能实现电脑完全控制安卓设备。完美支持Mac。
+
 

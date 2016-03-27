@@ -1,0 +1,16 @@
+---
+layout: null
+---
+[
+{% for post in site.posts %}
+    {
+    	"total": "{{ paginator.total_posts }}",
+    	"id": "{{ post.id }}"
+        "link": "{{ post.url | xml_escape }}",
+        "tag": "{{ post.tag | xml_escape }}",
+        "date": "{{ post.date | xml_escape }}",
+        "title": "{{ post.title | xml_escape }}",
+        "category": "{{ post.category | xml_escape }}"
+    }{% if forloop.last == false %},{% endif %}
+{% endfor %}
+]

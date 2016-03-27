@@ -1,22 +1,24 @@
 {
-    "name": "clean-blog",
-    "title": "Clean Blog",
+    "name": "52dev",
+    "title": "52dev",
     "version": "1.0.0",
-    "homepage": "http://startbootstrap.com",
-    "author": "Start Bootstrap",
+    "homepage": "http://blog.52dev.ent",
+    "author": "guolf",
     "license": {
         "type": "Apache 2.0",
-        "url": "https://github.com/IronSummitMedia/startbootstrap/blob/gh-pages/LICENSE"
+        "url": "https://github.com/guolf/guolf.github.com/blob/master/LICENSE"
     },
     "devDependencies": {
         "grunt": "~0.4.5",
         "grunt-contrib-less": "~0.11.4",
         "grunt-contrib-watch": "~0.6.1",
         "grunt-banner": "~0.2.3",
-        "grunt-contrib-uglify": "~0.5.1"
+        "grunt-contrib-uglify": "~0.5.1",
+        "grunt-css": ">0.0.0",
+        "grunt-contrib-concat": "~0.1.1"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/IronSummitMedia/startbootstrap-clean-blog-jekyll.git"
+        "url": "https://github.com/guolf/guolf.github.com.git"
     }
 }
