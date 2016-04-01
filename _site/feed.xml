@@ -5,9 +5,151 @@
     <description>A chinese man, detemined in Android and Python</description>
     <link>http://blog.52dev.net/</link>
     <atom:link href="http://blog.52dev.net/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 27 Mar 2016 16:52:07 +0800</pubDate>
-    <lastBuildDate>Sun, 27 Mar 2016 16:52:07 +0800</lastBuildDate>
+    <pubDate>Fri, 01 Apr 2016 14:11:39 +0800</pubDate>
+    <lastBuildDate>Fri, 01 Apr 2016 14:11:39 +0800</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
+    
+      <item>
+        <title>安卓优秀开源类库收集整理</title>
+        <description>&lt;p&gt;安卓优秀开源类库收集整理，方便快速查看gradle引用地址及最新版本.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;json&quot;&gt;json&lt;/h1&gt;
+
+&lt;h2 id=&quot;gson&quot;&gt;gson&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://github.com/google/gson&quot;&gt;项目地址:http://github.com/google/gson&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://travis-ci.org/google/gson&quot;&gt;&lt;img src=&quot;https://travis-ci.org/google/gson.svg?branch=master&quot; alt=&quot;Build Status&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;https://maven-badges.herokuapp.com/maven-central/com.google.code.gson/gson&quot;&gt;&lt;img src=&quot;https://maven-badges.herokuapp.com/maven-central/com.google.code.gson/gson/badge.svg&quot; alt=&quot;Maven Central&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;http://www.javadoc.io/doc/com.google.code.gson/gson&quot;&gt;&lt;img src=&quot;https://javadoc-emblem.rhcloud.com/doc/com.google.code.gson/gson/badge.svg&quot; alt=&quot;Javadoc&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;compile &#39;com.google.code.gson:gson:2.6.2&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;fastjson&quot;&gt;fastjson&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/alibaba/fastjson&quot;&gt;项目地址:https://github.com/alibaba/fastjson&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://maven-badges.herokuapp.com/maven-central/com.alibaba/fastjson/&quot;&gt;&lt;img src=&quot;https://maven-badges.herokuapp.com/maven-central/com.alibaba/fastjson/badge.svg&quot; alt=&quot;Maven Central&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;https://github.com/alibaba/fastjson/releases&quot;&gt;&lt;img src=&quot;https://img.shields.io/github/release/alibaba/fastjson.svg&quot; alt=&quot;GitHub release&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;https://www.apache.org/licenses/LICENSE-2.0.html&quot;&gt;&lt;img src=&quot;https://img.shields.io/badge/license-Apache%202-4EB1BA.svg&quot; alt=&quot;License&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;compile &#39;com.alibaba:fastjson:1.2.8&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;section&quot;&gt;图片加载&lt;/h1&gt;
+
+&lt;h2 id=&quot;picasso&quot;&gt;picasso&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/square/picasso&quot;&gt;项目地址:https://github.com/square/picasso&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://maven-badges.herokuapp.com/maven-central/com.squareup.picasso/picasso/&quot;&gt;&lt;img src=&quot;https://maven-badges.herokuapp.com/maven-central/com.squareup.picasso/picasso/badge.svg&quot; alt=&quot;Maven Central&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;compile &#39;com.squareup.picasso:picasso:2.5.2&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;fresco&quot;&gt;fresco&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/facebook/fresco&quot;&gt;项目地址:https://github.com/facebook/fresco&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://maven-badges.herokuapp.com/maven-central/com.facebook.fresco/fresco/&quot;&gt;&lt;img src=&quot;https://maven-badges.herokuapp.com/maven-central/com.facebook.fresco/fresco/badge.svg&quot; alt=&quot;Maven Central&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;compile &#39;com.facebook.fresco:fresco:0.9.0&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;glide&quot;&gt;glide&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/bumptech/glide&quot;&gt;项目地址:https://github.com/bumptech/glide&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://maven-badges.herokuapp.com/maven-central/com.github.bumptech.glide/glide/&quot;&gt;&lt;img src=&quot;https://maven-badges.herokuapp.com/maven-central/com.github.bumptech.glide/glide/badge.svg&quot; alt=&quot;Maven Central&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;compile &#39;com.github.bumptech.glide:glide:3.7.0&#39;
+compile &#39;com.android.support:support-v4:19.1.0&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;混淆&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-keep public class * implements com.bumptech.glide.module.GlideModule
+-keep public enum com.bumptech.glide.load.resource.bitmap.ImageHeaderParser$** {
+  **[] $VALUES;
+  public *;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;android-universal-image-loader&quot;&gt;Android-Universal-Image-Loader&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/nostra13/Android-Universal-Image-Loader&quot;&gt;项目地址:https://github.com/nostra13/Android-Universal-Image-Loader&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://maven-badges.herokuapp.com/maven-central/com.nostra13.universalimageloader/universal-image-loader/&quot;&gt;&lt;img src=&quot;https://maven-badges.herokuapp.com/maven-central/com.nostra13.universalimageloader/universal-image-loader/badge.svg&quot; alt=&quot;Maven Central&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;compile &#39;com.nostra13.universalimageloader:universal-image-loader:1.9.5&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;http&quot;&gt;http&lt;/h1&gt;
+
+&lt;h2 id=&quot;okhttp&quot;&gt;okhttp&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/square/okhttp&quot;&gt;项目地址:https://github.com/square/okhttp&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://maven-badges.herokuapp.com/maven-central/com.squareup.okhttp3/okhttp/&quot;&gt;&lt;img src=&quot;https://maven-badges.herokuapp.com/maven-central/com.squareup.okhttp3/okhttp/badge.svg&quot; alt=&quot;Maven Central&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;compile &#39;com.squareup.okhttp3:okhttp:3.2.0&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;retrofit&quot;&gt;retrofit&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/square/retrofit&quot;&gt;项目地址:https://github.com/square/retrofit&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://maven-badges.herokuapp.com/maven-central/com.squareup.retrofit2/retrofit/&quot;&gt;&lt;img src=&quot;https://maven-badges.herokuapp.com/maven-central/com.squareup.retrofit2/retrofit/badge.svg&quot; alt=&quot;Maven Central&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;compile &#39;com.squareup.retrofit2:retrofit:2.0.1&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;android-async-http&quot;&gt;android-async-http&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/loopj/android-async-http&quot;&gt;项目地址:https://github.com/loopj/android-async-http&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://maven-badges.herokuapp.com/maven-central/com.loopj.android/android-async-http/&quot;&gt;&lt;img src=&quot;https://maven-badges.herokuapp.com/maven-central/com.loopj.android/android-async-http/badge.svg&quot; alt=&quot;Maven Central&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;compile &#39;com.loopj.android:android-async-http:1.4.9&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;chat&quot;&gt;chat&lt;/h1&gt;
+
+&lt;h2 id=&quot;mpandroidchart&quot;&gt;MPAndroidChart&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/PhilJay/MPAndroidChart&quot;&gt;项目地址:https://github.com/PhilJay/MPAndroidChart&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/PhilJay/MPAndroidChart/releases&quot;&gt;&lt;img src=&quot;https://img.shields.io/github/release/PhilJay/MPAndroidChart.svg&quot; alt=&quot;GitHub release&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;repositories {
+    maven { url &quot;https://jitpack.io&quot; }
+}
+
+dependencies {
+    compile &#39;com.github.PhilJay:MPAndroidChart:v2.2.4&#39;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Fri, 01 Apr 2016 00:00:00 +0800</pubDate>
+        <link>http://blog.52dev.net/blog/2016/04/01/Android%E7%B1%BB%E5%BA%93%E6%94%B6%E9%9B%86/</link>
+        <guid isPermaLink="true">http://blog.52dev.net/blog/2016/04/01/Android%E7%B1%BB%E5%BA%93%E6%94%B6%E9%9B%86/</guid>
+        
+        <category>android</category>
+        
+        
+        <category>blog</category>
+        
+      </item>
     
       <item>
         <title>Android应用安全开发之源码安全</title>

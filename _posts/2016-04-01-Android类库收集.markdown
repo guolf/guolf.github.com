@@ -1,0 +1,141 @@
+---
+layout: post
+title: 安卓优秀开源类库收集整理
+date: 2016-04-01
+categories: blog
+author: guolf
+tags: [android]
+description: 安卓优秀开源类库收集整理
+
+---
+
+
+安卓优秀开源类库收集整理，方便快速查看gradle引用地址及最新版本.
+
+---
+
+# json
+
+## gson
+
+[项目地址:http://github.com/google/gson](http://github.com/google/gson)
+
+[![Build Status](https://travis-ci.org/google/gson.svg?branch=master)](https://travis-ci.org/google/gson)[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.google.code.gson/gson/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.google.code.gson/gson)[![Javadoc](https://javadoc-emblem.rhcloud.com/doc/com.google.code.gson/gson/badge.svg)](http://www.javadoc.io/doc/com.google.code.gson/gson)
+
+```
+compile 'com.google.code.gson:gson:2.6.2'
+```
+
+## fastjson
+
+[项目地址:https://github.com/alibaba/fastjson](https://github.com/alibaba/fastjson)
+
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.alibaba/fastjson/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.alibaba/fastjson/)
+[![GitHub release](https://img.shields.io/github/release/alibaba/fastjson.svg)](https://github.com/alibaba/fastjson/releases)
+[![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
+
+
+```
+compile 'com.alibaba:fastjson:1.2.8'
+```
+
+# 图片加载
+
+## picasso
+
+[项目地址:https://github.com/square/picasso](https://github.com/square/picasso)
+
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.squareup.picasso/picasso/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.squareup.picasso/picasso/)
+
+```
+compile 'com.squareup.picasso:picasso:2.5.2'
+```
+
+## fresco
+[项目地址:https://github.com/facebook/fresco](https://github.com/facebook/fresco)
+
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.facebook.fresco/fresco/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.facebook.fresco/fresco/)
+
+```
+compile 'com.facebook.fresco:fresco:0.9.0'
+```
+
+## glide
+
+[项目地址:https://github.com/bumptech/glide](https://github.com/bumptech/glide)
+
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.bumptech.glide/glide/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.bumptech.glide/glide/)
+
+```
+compile 'com.github.bumptech.glide:glide:3.7.0'
+compile 'com.android.support:support-v4:19.1.0'
+```
+
+混淆
+
+```
+-keep public class * implements com.bumptech.glide.module.GlideModule
+-keep public enum com.bumptech.glide.load.resource.bitmap.ImageHeaderParser$** {
+  **[] $VALUES;
+  public *;
+}
+```
+
+
+## Android-Universal-Image-Loader
+[项目地址:https://github.com/nostra13/Android-Universal-Image-Loader](https://github.com/nostra13/Android-Universal-Image-Loader)
+
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.nostra13.universalimageloader/universal-image-loader/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.nostra13.universalimageloader/universal-image-loader/)
+
+```
+compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+```
+
+# http
+
+## okhttp
+[项目地址:https://github.com/square/okhttp](https://github.com/square/okhttp)
+
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.squareup.okhttp3/okhttp/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.squareup.okhttp3/okhttp/)
+
+```
+compile 'com.squareup.okhttp3:okhttp:3.2.0'
+```
+
+## retrofit
+
+[项目地址:https://github.com/square/retrofit](https://github.com/square/retrofit)
+
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.squareup.retrofit2/retrofit/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.squareup.retrofit2/retrofit/)
+
+```
+compile 'com.squareup.retrofit2:retrofit:2.0.1'
+```
+
+## android-async-http
+
+[项目地址:https://github.com/loopj/android-async-http](https://github.com/loopj/android-async-http)
+
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.loopj.android/android-async-http/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.loopj.android/android-async-http/)
+
+```
+compile 'com.loopj.android:android-async-http:1.4.9'
+```
+
+
+# chat
+
+## MPAndroidChart
+[项目地址:https://github.com/PhilJay/MPAndroidChart](https://github.com/PhilJay/MPAndroidChart)
+
+[![GitHub release](https://img.shields.io/github/release/PhilJay/MPAndroidChart.svg)](https://github.com/PhilJay/MPAndroidChart/releases)
+
+```
+repositories {
+    maven { url "https://jitpack.io" }
+}
+
+dependencies {
+    compile 'com.github.PhilJay:MPAndroidChart:v2.2.4'
+}
+```
