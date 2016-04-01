@@ -2,14 +2,14 @@
 title: 52dev
 #header-img: "http://guolingfa.cn/Content/Themes/green/images/logo.jpg"
 tagline: "cn"
-description: "A chinese man, detemined in Android and Python"
+description: "blog.52dev.net | guolf "
 baseurl: ""
 url: "http://blog.52dev.net"
 
 # About/contact
 owner:
   name: "guolf"
-  email: guolingfa#gmail.com
+  email: guolingfa@gmail.com
   bio: "52dev"
 
 # Data
