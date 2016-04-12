@@ -5,8 +5,8 @@
     <description>blog.52dev.net | guolf </description>
     <link>http://blog.52dev.net/</link>
     <atom:link href="http://blog.52dev.net/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 12 Apr 2016 10:41:59 +0800</pubDate>
-    <lastBuildDate>Tue, 12 Apr 2016 10:41:59 +0800</lastBuildDate>
+    <pubDate>Tue, 12 Apr 2016 10:46:21 +0800</pubDate>
+    <lastBuildDate>Tue, 12 Apr 2016 10:46:21 +0800</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
@@ -27,7 +27,7 @@
 
 &lt;p&gt;1、选中需共享文件夹，右键&lt;code class=&quot;highlighter-rouge&quot;&gt;属性&lt;/code&gt;-&lt;code class=&quot;highlighter-rouge&quot;&gt;共享&lt;/code&gt;，开启共享。&lt;/p&gt;
 
-&lt;p&gt;2、确保windows、mac在同一网段下，互相能够ping通。mac进入Finder界面，&lt;code class=&quot;highlighter-rouge&quot;&gt;前往&lt;/code&gt;-&lt;code class=&quot;highlighter-rouge&quot;&gt;连接服务器&lt;/code&gt;，输入&lt;code class=&quot;highlighter-rouge&quot;&gt;smb:\\ip&lt;/code&gt;或者&lt;code class=&quot;highlighter-rouge&quot;&gt;smb:\\hostname&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;2、确保windows、mac在同一网段下，互相能够ping通。mac进入Finder界面，&lt;code class=&quot;highlighter-rouge&quot;&gt;前往&lt;/code&gt;-&lt;code class=&quot;highlighter-rouge&quot;&gt;连接服务器&lt;/code&gt;，输入&lt;code class=&quot;highlighter-rouge&quot;&gt;smb://ip&lt;/code&gt;或者&lt;code class=&quot;highlighter-rouge&quot;&gt;smb://hostname&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/img/D51DBB8E-2EC8-439E-B06A-6B0F78BAFEBD.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 

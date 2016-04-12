@@ -25,7 +25,7 @@ windows下`win+R`，打开运行界面，输入`\\192.168.23.2`或者输入电�
 
 1、选中需共享文件夹，右键`属性`-`共享`，开启共享。
 
-2、确保windows、mac在同一网段下，互相能够ping通。mac进入Finder界面，`前往`-`连接服务器`，输入`smb:\\ip`或者`smb:\\hostname`
+2、确保windows、mac在同一网段下，互相能够ping通。mac进入Finder界面，`前往`-`连接服务器`，输入`smb://ip`或者`smb://hostname`
 
 ![image](/img/D51DBB8E-2EC8-439E-B06A-6B0F78BAFEBD.png)
 
