@@ -2,12 +2,51 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>52dev</title>
-    <description>A chinese man, detemined in Android and Python</description>
+    <description>blog.52dev.net | guolf </description>
     <link>http://blog.52dev.net/</link>
     <atom:link href="http://blog.52dev.net/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 01 Apr 2016 21:02:33 +0800</pubDate>
-    <lastBuildDate>Fri, 01 Apr 2016 21:02:33 +0800</lastBuildDate>
+    <pubDate>Tue, 12 Apr 2016 10:41:59 +0800</pubDate>
+    <lastBuildDate>Tue, 12 Apr 2016 10:41:59 +0800</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
+    
+      <item>
+        <title>mac与windows互相访问共享文件</title>
+        <description>&lt;h2 id=&quot;windowsmac&quot;&gt;Windows访问Mac共享文件夹&lt;/h2&gt;
+
+&lt;p&gt;1、进入系统偏好-共享，开启文件共享&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/2656595B-4AD4-46E2-A335-B79A8CD98BA6.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2、确保windows、mac在同一网段下，互相能够ping通&lt;/p&gt;
+
+&lt;p&gt;windows下&lt;code class=&quot;highlighter-rouge&quot;&gt;win+R&lt;/code&gt;，打开运行界面，输入&lt;code class=&quot;highlighter-rouge&quot;&gt;\\192.168.23.2&lt;/code&gt;或者输入电脑名称&lt;code class=&quot;highlighter-rouge&quot;&gt;\\guolf&lt;/code&gt;。输入用户名、密码，即可进行访问。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/win+R.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;macwindows&quot;&gt;mac访问windows共享文件夹&lt;/h2&gt;
+
+&lt;p&gt;1、选中需共享文件夹，右键&lt;code class=&quot;highlighter-rouge&quot;&gt;属性&lt;/code&gt;-&lt;code class=&quot;highlighter-rouge&quot;&gt;共享&lt;/code&gt;，开启共享。&lt;/p&gt;
+
+&lt;p&gt;2、确保windows、mac在同一网段下，互相能够ping通。mac进入Finder界面，&lt;code class=&quot;highlighter-rouge&quot;&gt;前往&lt;/code&gt;-&lt;code class=&quot;highlighter-rouge&quot;&gt;连接服务器&lt;/code&gt;，输入&lt;code class=&quot;highlighter-rouge&quot;&gt;smb:\\ip&lt;/code&gt;或者&lt;code class=&quot;highlighter-rouge&quot;&gt;smb:\\hostname&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/D51DBB8E-2EC8-439E-B06A-6B0F78BAFEBD.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;3、输入windows用户名密码,即可进行访问。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/D26076C4-F252-49A7-ABB9-AD28F4ACDECE.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 12 Apr 2016 00:00:00 +0800</pubDate>
+        <link>http://blog.52dev.net/blog/2016/04/12/mac%E4%B8%8Ewindows%E4%BA%92%E7%9B%B8%E8%AE%BF%E9%97%AE%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6/</link>
+        <guid isPermaLink="true">http://blog.52dev.net/blog/2016/04/12/mac%E4%B8%8Ewindows%E4%BA%92%E7%9B%B8%E8%AE%BF%E9%97%AE%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6/</guid>
+        
+        <category>mac</category>
+        
+        <category>windows</category>
+        
+        
+        <category>blog</category>
+        
+      </item>
     
       <item>
         <title>安卓优秀开源类库收集整理</title>
@@ -1491,45 +1530,6 @@ CNAME文件内容为blog.52dev.net
         <category>github</category>
         
         <category>jekyll</category>
-        
-        
-        <category>blog</category>
-        
-      </item>
-    
-      <item>
-        <title>ssh文件上传下载</title>
-        <description>&lt;h4 id=&quot;section&quot;&gt;下载文件和目录&lt;/h4&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 从服务下载文件
-scp username@servername:/remote/filename /local/dir/
-# 从服务器下载整个目录
-scp -r username@servername:/remote/dir/ /local/dir/
-# 非默认端口下载文件
-scp -P 29308 username@servername:/remote/filename /local/dir/
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&quot;section-1&quot;&gt;上传文件和目录&lt;/h4&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 上传指定文件到服务器
-scp /local/filename username@servername:/remote/dir
-# 上传目录到服务器
-scp  -r /local/dir username@servername:/remote/dir
-# 非默认端口上传文件
-scp -P 13122 /local/filename username@servername:/remote/dir
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;仅作记录.&lt;/p&gt;
-</description>
-        <pubDate>Fri, 21 Nov 2014 00:00:00 +0800</pubDate>
-        <link>http://blog.52dev.net/blog/2014/11/21/ssh-upload-download-file/</link>
-        <guid isPermaLink="true">http://blog.52dev.net/blog/2014/11/21/ssh-upload-download-file/</guid>
-        
-        <category>linux</category>
-        
-        <category>ssh</category>
         
         
         <category>blog</category>
