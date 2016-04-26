@@ -84,3 +84,10 @@ Reboot and voila
 免费开源录制 gif 软件，直观易用，功能灵活
 
 
+# Chrome浏览器 ERR_UNSAFE_PORT错误
+终端输入以下命令，将87替换成目标端口。
+
+```
+open /Applications/Google\ Chrome.app --args --explicitly-allowed-ports=87
+```
+
