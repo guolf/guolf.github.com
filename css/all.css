@@ -2,7 +2,7 @@
 #back-top {
   position: fixed;
   bottom: 30px;
-  margin-left: 1040px;
+  right: 50px;
 }
 #back-top a {
   width: 54px;
@@ -111,6 +111,12 @@
 .highlight .vi { color: teal; }
 .highlight .il { color: #009999; }
 .highlight .gc { color: #999; background-color: #EAF2F5; }
+
+/*!
+ * 52dev v1.0.0 (http://blog.52dev.ent)
+ * Copyright 2016 guolf
+ * Licensed under Apache 2.0 (https://github.com/guolf/guolf.github.com/blob/master/LICENSE)
+ */
 
 /*!
  * 52dev v1.0.0 (http://blog.52dev.ent)
