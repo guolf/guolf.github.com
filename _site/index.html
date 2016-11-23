@@ -106,6 +106,49 @@
 		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 			
 <div class="post-preview">
+    <a href="/blog/2016/11/23/oracle-regexp/">
+        <h2 class="post-title">
+            Oracle正则表达式
+        </h2>
+        
+        <div class="post-content-preview">
+            Oracle正则表达式
+
+正则查询患者妊娠、怀孕时间
+
+select regexp_substr('妊娠10周' ,'(孕|妊娠)([^"]*)周',1, 1) from dual;  
+select regexp_substr('孕10周' ,'(孕|妊娠)([^"]*)周',1, 1) f...
+        </div>
+    </a>
+    <p class="post-meta">Posted by guolf on November 23, 2016</p>
+</div>
+
+<hr>
+
+<div class="post-preview">
+    <a href="/blog/2016/11/23/android-note/">
+        <h2 class="post-title">
+            Android开发笔记
+        </h2>
+        
+        <div class="post-content-preview">
+            gradle
+
+多渠道打包
+gradle多渠道打包，自定义包名、应用名称，自定义变量。UPDATE_ID可通过BuildConfig.UPDATE_ID获取。
+
+productFlavors {
+	demo {
+		applicationId "com.android.kfzs.demo"
+	...
+        </div>
+    </a>
+    <p class="post-meta">Posted by guolf on November 23, 2016</p>
+</div>
+
+<hr>
+
+<div class="post-preview">
     <a href="/blog/2016/04/12/mac%E4%B8%8Ewindows%E4%BA%92%E7%9B%B8%E8%AE%BF%E9%97%AE%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6/">
         <h2 class="post-title">
             mac与windows互相访问共享文件
@@ -246,57 +289,6 @@ mTelnum.setOnTouchListener(new View.OnTouchListener() {
         </div>
     </a>
     <p class="post-meta">Posted by guolf on February 21, 2016</p>
-</div>
-
-<hr>
-
-<div class="post-preview">
-    <a href="/blog/2015/12/19/android%E5%8F%8D%E7%BC%96%E8%AF%91-%E9%87%8D%E6%96%B0%E6%89%93%E5%8C%85/">
-        <h2 class="post-title">
-            Android反编译，重新打包
-        </h2>
-        
-        <div class="post-content-preview">
-            Android反编译、重新打包
-
-安装apktool
-
-参考http://ibotpeaches.github.io/Apktool/install/
-
-# 反编译
-$ apktool d testapp.apk
-I: Using Apktool 2.0.0 on testapp.apk
-I:...
-        </div>
-    </a>
-    <p class="post-meta">Posted by guolf on December 19, 2015</p>
-</div>
-
-<hr>
-
-<div class="post-preview">
-    <a href="/blog/2015/08/26/ssh-key-login/">
-        <h2 class="post-title">
-            linux利用ssh key 免密码登陆
-        </h2>
-        
-        <div class="post-content-preview">
-            利用ssh key验证登陆Linux服务器
-### 生成SSH Key
-
-创建RSA Key Pair
-
-ssh-keygen -t rsa
-
-
-
-输入key保存位置
-Enter file in which to save the key (/home/demo/.ssh/id_rsa):
-
-...
-        </div>
-    </a>
-    <p class="post-meta">Posted by guolf on August 26, 2015</p>
 </div>
 
 <hr>

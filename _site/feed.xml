@@ -5,9 +5,85 @@
     <description>blog.52dev.net | guolf </description>
     <link>http://blog.52dev.net/</link>
     <atom:link href="http://blog.52dev.net/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 23 Nov 2016 16:05:50 +0800</pubDate>
-    <lastBuildDate>Wed, 23 Nov 2016 16:05:50 +0800</lastBuildDate>
+    <pubDate>Wed, 23 Nov 2016 17:11:14 +0800</pubDate>
+    <lastBuildDate>Wed, 23 Nov 2016 17:11:14 +0800</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
+    
+      <item>
+        <title>Oracle正则表达式</title>
+        <description>&lt;h2 id=&quot;oracle&quot;&gt;Oracle正则表达式&lt;/h2&gt;
+
+&lt;p&gt;正则查询患者妊娠、怀孕时间&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;select regexp_substr(&#39;妊娠10周&#39; ,&#39;(孕|妊娠)([^&quot;]*)周&#39;,1, 1) from dual;  
+select regexp_substr(&#39;孕10周&#39; ,&#39;(孕|妊娠)([^&quot;]*)周&#39;,1, 1) from dual;  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;正则替换患者姓名&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;select regexp_replace(&#39;出院记录[王老五]&#39; ,&#39;\[[^&quot;]*(])&#39;,&#39;[某患者]&#39;,1, 0) from dual;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Wed, 23 Nov 2016 00:00:00 +0800</pubDate>
+        <link>http://blog.52dev.net/blog/2016/11/23/oracle-regexp/</link>
+        <guid isPermaLink="true">http://blog.52dev.net/blog/2016/11/23/oracle-regexp/</guid>
+        
+        <category>Oracle</category>
+        
+        
+        <category>blog</category>
+        
+      </item>
+    
+      <item>
+        <title>Android开发笔记</title>
+        <description>&lt;h2 id=&quot;gradle&quot;&gt;gradle&lt;/h2&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;多渠道打包&lt;/h3&gt;
+&lt;p&gt;gradle多渠道打包，自定义包名、应用名称，自定义变量。UPDATE_ID可通过&lt;code class=&quot;highlighter-rouge&quot;&gt;BuildConfig.UPDATE_ID&lt;/code&gt;获取。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;productFlavors {
+	demo {
+		applicationId &quot;com.android.kfzs.demo&quot;
+		buildConfigField &quot;String&quot;, &quot;UPDATE_ID&quot;, &quot;\&quot;6f272119-7253-453e-a685-21163da46d94\&quot;&quot;
+		resValue &quot;string&quot;, &quot;app_name&quot;, &quot;APPNAME-演示版&quot;
+		manifestPlaceholders = [BUGLY_APP_CHANNEL_VALUE: &quot;demo&quot;]
+	}
+	prod {
+		applicationId &quot;com.android.kfzs&quot;
+		buildConfigField &quot;String&quot;, &quot;UPDATE_ID&quot;, &quot;\&quot;11e8e8e1-ff71-4521-ab70-e8b8c8966611\&quot;&quot;
+		resValue &quot;string&quot;, &quot;app_name&quot;, &quot;APPNAME&quot;
+		manifestPlaceholders = [BUGLY_APP_CHANNEL_VALUE: &quot;prod&quot;]
+	}
+}
+            
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;每个渠道使用不同的icon,在src目录下创建渠道名称文件夹，如图所示
+&lt;img src=&quot;/img/58780917-8FE8-4374-8828-70EAEC2B2E6A.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;gradle-&quot;&gt;gradle 排除指定模块&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;compile (&#39;com.github.czy1121:noticeview:1.0.0&#39;){
+	exclude group: &quot;com.android.support&quot;, module: &quot;appcompat-v7&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+</description>
+        <pubDate>Wed, 23 Nov 2016 00:00:00 +0800</pubDate>
+        <link>http://blog.52dev.net/blog/2016/11/23/android-note/</link>
+        <guid isPermaLink="true">http://blog.52dev.net/blog/2016/11/23/android-note/</guid>
+        
+        <category>Android</category>
+        
+        
+        <category>blog</category>
+        
+      </item>
     
       <item>
         <title>mac与windows互相访问共享文件</title>
@@ -1124,424 +1200,6 @@ IdentityFile ~/.ssh/id_rsa
         <category>linux</category>
         
         <category>ssh</category>
-        
-        
-        <category>blog</category>
-        
-      </item>
-    
-      <item>
-        <title>AOP框架Dexposed使用详解</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;典型的使用场景&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;AOP编程&lt;/li&gt;
-  &lt;li&gt;插桩（例如测试，性能监控等）&lt;/li&gt;
-  &lt;li&gt;在线热更新，修复严重的，紧急的或者安全性的bug&lt;/li&gt;
-  &lt;li&gt;SDK hooking以提供更好的开发体验&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;section-1&quot;&gt;如何集成&lt;/h2&gt;
-
-&lt;p&gt;集成方式很简单，直接dexposed aar添加到您的项目作为编译库，它包含了从“dexposed”目录中的jar文件“dexposedbridge.jar”和两个so文件“libdexposed.so libdexposed_l.so”。Gradle依赖如下所示：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dependencies {
-	compile &#39;com.taobao.android:dexposed:0.1.1@aar&#39;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;在应用启动时进行初始化&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public class MyApplication extends Application {
-
-	private boolean mIsSupported = false; // 设备是否支持dexposed
-    private boolean mIsLDevice = false;  // 设备Android系统是否是Android 5.0及以上
-
-    @Override public void onCreate() {    
-     super.onCreate();    
-        // Check whether current device is supported (also initialize Dexposed framework if not yet)
-        mIsSupported = DexposedBridge.canDexposed(this);
-    	mIsLDevice = Build.VERSION.SDK_INT &amp;gt;= 21;
-    }
-    public boolean isSupported() {
-    return mIsSupported;
-	}
-
-    public boolean isLDevice() {
-        return mIsLDevice;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;section-2&quot;&gt;基本用法&lt;/h2&gt;
-
-&lt;p&gt;对于某个函数而言，有三个注入点可供选择：函数执行前注入（before），函数执行后注入（after），替换函数执行的代码段（replace）。
-例子1：应用中所有的Activity.onCreate(Bundle)函数调用之前和之后增加一些相同的处理：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// Target class, method with parameter types, followed by the hook callback (XC_MethodHook).
-DexposedBridge.findAndHookMethod(Activity.class, &quot;onCreate&quot;, Bundle.class, new XC_MethodHook() {
-
-    // To be invoked before Activity.onCreate().
-    @Override protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
-            // &quot;thisObject&quot; keeps the reference to the instance of target class.
-            Activity instance = (Activity) param.thisObject;
-
-            // The array args include all the parameters.
-            Bundle bundle = (Bundle) param.args[0];
-            Intent intent = new Intent();
-            // XposedHelpers provide useful utility methods.
-            XposedHelpers.setObjectField(param.thisObject, &quot;mIntent&quot;, intent);
-
-            // Calling setResult() will bypass the original method body use the result as method return value directly.
-            if (bundle.containsKey(&quot;return&quot;))
-                param.setResult(null);
-        }
-
-        // To be invoked after Activity.onCreate()
-        @Override protected void afterHookedMethod(MethodHookParam param) throws Throwable {
-            XposedHelpers.callMethod(param.thisObject, &quot;sampleMethod&quot;, 2);
-    }
-});
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;例子2：在线热更新
-我们假设宿主apk的MainActivity.showDialog函数出现问题，需要打补丁，宿主代码如下所示：（类完整路径是:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;package com.taobao.dexposed;
-
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.TextView;
-
-import com.taobao.android.dexposed.XC_MethodHook;
-import com.taobao.android.dexposed.DexposedBridge;
-import com.taobao.patch.PatchMain;
-import com.taobao.patch.PatchResult;
-
-import java.io.File;
-
-
-public class MainActivity extends Activity {
-
-	private boolean isSupport = false;
-
-    private boolean isLDevice= false;
-	
-	private TextView mLogContent;
-	
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-		mLogContent = (TextView) (this.findViewById(R.id.log_content));
-		// check device if support and auto load libs
-        isSupport = DexposedBridge.canDexposed(this);
-        isLDevice = android.os.Build.VERSION.SDK_INT == 21;
-	}
-
-	//Hook system log click
-	public void hookSystemLog(View view) {
-		if (isSupport) {
-			DexposedBridge.findAndHookMethod(isLDevice ? this.getClass(): Log.class, isLDevice ? &quot;showLog&quot; : &quot;d&quot;, String.class, String.class, new XC_MethodHook() {
-				@Override
-				protected void afterHookedMethod(MethodHookParam arg0) throws Throwable {
-					String tag = (String) arg0.args[0];
-					String msg = (String) arg0.args[1];
-					mLogContent.setText(tag + &quot;,&quot; + msg);
-				}
-			});
-            if (isLDevice) {
-                showLog(&quot;dexposed&quot;, &quot;It doesn&#39;t support AOP to system method on ART devices&quot;);
-            } else {
-                Log.d(&quot;dexposed&quot;, &quot;Logs are redirected to display here&quot;);
-            }
-		} else {
-			mLogContent.setText(&quot;This device doesn&#39;t support dexposed!&quot;);
-		}
-	}
-
-    private void showLog(String tag, String msg) {
-        Log.d(tag, msg);
-    }
-	
-	// Hook choreographer click
-	public void hookChoreographer(View view) {
-		Log.d(&quot;dexposed&quot;, &quot;hookChoreographer button clicked.&quot;);
-		if (isSupport &amp;amp;&amp;amp; !isLDevice) {
-			ChoreographerHook.instance().start();
-		} else {
-			showLog(&quot;dexposed&quot;, &quot;This device doesn&#39;t support this!&quot;);
-		}
-	}
-	
-	// Run patch apk
-	public void runPatchApk(View view) {
-		Log.d(&quot;dexposed&quot;, &quot;runPatchApk button clicked.&quot;);
-        if (isLDevice) {
-            showLog(&quot;dexposed&quot;, &quot;It doesn&#39;t support this function on L device.&quot;);
-            return;
-        }
-        if (!isSupport) {
-			Log.d(&quot;dexposed&quot;, &quot;This device doesn&#39;t support dexposed!&quot;);
-			return;
-		}
-		File cacheDir = getExternalCacheDir();
-    	if(cacheDir != null){
-    		String fullpath = cacheDir.getAbsolutePath() + File.separator + &quot;patch.apk&quot;;
-    		PatchResult result = PatchMain.load(this, fullpath, null);
-    		if (result.isSuccess()) {
-    			Log.e(&quot;Hotpatch&quot;, &quot;patch success!&quot;);
-    		} else {
-    			Log.e(&quot;Hotpatch&quot;, &quot;patch error is &quot; + result.getErrorInfo());
-    		}
-    	}
-    	showDialog();
-	}
-	
-	private void showDialog() {
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setTitle(&quot;Dexposed sample&quot;)
-				.setMessage(
-						&quot;Please clone patchsample project to generate apk, and copy it to \&quot;/Android/data/com.taobao.dexposed/cache/patch.apk\&quot;&quot;)
-				.setPositiveButton(&quot;ok&quot;, new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int whichButton) {
-					}
-				}).create().show();
-	}
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;补丁apk只有一个名为DialogPatch的类，实现了patchloader函数库中的IPatch接口，IPatch接口代码如下所示：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;package com.taobao.patch;
-
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-
-import com.taobao.android.dexposed.XC_MethodReplacement;
-import com.taobao.android.dexposed.DexposedBridge;
-
-public class DialogPatch implements IPatch {
-
-	@Override
-	public void handlePatch(final PatchParam arg0) throws Throwable {    	
-    	Class&amp;lt;?&amp;gt; cls = null;
-		try {
-			cls= arg0.context.getClassLoader()
-					.loadClass(&quot;com.taobao.dexposed.MainActivity&quot;);
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-			return;
-		}     	
-     	DexposedBridge.findAndHookMethod(cls, &quot;showDialog&quot;,
-				new XC_MethodReplacement() {
-			@Override
-			protected Object replaceHookedMethod(MethodHookParam param) throws Throwable {
-				Activity mainActivity = (Activity) param.thisObject;
-				AlertDialog.Builder builder = new AlertDialog.Builder(mainActivity);
-				builder.setTitle(&quot;Dexposed sample&quot;)
-						.setMessage(&quot;The dialog is shown from patch apk!&quot;)
-						.setPositiveButton(&quot;ok&quot;, new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int whichButton) {
-							}
-						}).create().show();
-				return null;                 
-			}
-		});
-	} 
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;将补丁打包成apk,通过adb push到/Android/data/com.taobao.dexposed/cache/patch.apk,点击runPatchApk即可看到弹出的内容为补丁的内容。&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;adb push patch.apk /sdcard/Android/data/com.taobao.dexposed/cache/patch.apk
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;section-3&quot;&gt;支持的版本&lt;/h2&gt;
-
-&lt;p&gt;Dexposed支持从Android2.3到4.4（除了3.0）的所有dalvid运行时arm架构的设备，稳定性已经经过实践检验。&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Runtime&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Android Version&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Support&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Dalvik&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;2.2&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;Not Test&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Dalvik&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;2.3&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Dalvik&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;3.0&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;No&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Dalvik&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;4.0-4.4&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;ART&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;5.0&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;Testing&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;ART&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;5.1&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;No&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;ART&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;M&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;No&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;section-4&quot;&gt;项目地址&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/alibaba/dexposed&quot;&gt;dexposed&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Wed, 26 Aug 2015 00:00:00 +0800</pubDate>
-        <link>http://blog.52dev.net/blog/2015/08/26/AOP%E6%A1%86%E6%9E%B6Dexposed%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3/</link>
-        <guid isPermaLink="true">http://blog.52dev.net/blog/2015/08/26/AOP%E6%A1%86%E6%9E%B6Dexposed%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3/</guid>
-        
-        <category>android</category>
-        
-        <category>aop</category>
-        
-        <category>dexposed</category>
-        
-        
-        <category>blog</category>
-        
-      </item>
-    
-      <item>
-        <title>利用Github + Jekyll 搭建个人博客</title>
-        <description>&lt;h2 id=&quot;github--jekyll-&quot;&gt;利用Github + Jekyll 搭建个人博客&lt;/h2&gt;
-
-&lt;p&gt;我写这篇文章的目的是记录本博客的搭建过程，自己从零开始逐步搭建起来了GitHub Pages，其中借鉴了很多的博客和模版，稍后会在后面列出，也为没有用过gihub和jekyll的童鞋提供一点帮助。&lt;/p&gt;
-
-&lt;p&gt;学习使用github网页的最好办法就是clone别人的代码，看懂他们的代码，并修改成自己喜欢的样子。这篇文章介绍了windows下从最初安装软件到使用的过程。&lt;/p&gt;
-
-&lt;p&gt;下面开始一步步讲解Github Pages的使用流程：&lt;/p&gt;
-
-&lt;h2 id=&quot;windowsruby&quot;&gt;在windows下安装ruby环境&lt;/h2&gt;
-
-&lt;h3 id=&quot;rubyinstaller-for-windowshttprubyinstallerorgdownloads&quot;&gt;1). 下载并安装 &lt;a href=&quot;http://rubyinstaller.org/downloads/&quot;&gt;RubyInstaller for Windows&lt;/a&gt;。&lt;/h3&gt;
-&lt;p&gt;版本可以选择2.0或者1.9.3都可以。&lt;/p&gt;
-
-&lt;p&gt;双击安装，安装时选中“Add Ruby executables to your PATH”前的框将ruby添加到环境变量中。&lt;/p&gt;
-
-&lt;p&gt;安装完成后，在 Windows 命令行窗口中执行以下命令，检查ruby是否已经加到PATH中：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ruby --version
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;devkit-&quot;&gt;2). 安装 DevKit 。&lt;/h3&gt;
-
-&lt;p&gt;请根据主页上的描述下载对应的DevKit版本，下载后直接解压到没有空格的路径（例如 E:\DevKit)，然后在Windows的命令行窗口中执行以下命令：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ruby dk.rb init 
-ruby dk.rb install
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;jekyll&quot;&gt;3). 安装Jekyll和相关的包。&lt;/h3&gt;
-
-&lt;p&gt;由于国内网络原因（你懂的），导致 rubygems.org 存放在 Amazon S3 上面的资源文件间歇性连接失败。解决方案是使用淘宝的 RubyGems 镜像，它是一个完整 rubygems.org 镜像，你可以用此代替官方版本，同步频率目前为15分钟一次以保证尽量与官方服务同步。&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem sources --remove https://rubygems.org/
-gem sources -a https://ruby.taobao.org/
-gem sources -l
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;安装完成Ruby和DevKit 后继续安装jekyll，执行如下命令安装：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem install jekyll
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;等待安装完成即可。&lt;/p&gt;
-
-&lt;h2 id=&quot;git&quot;&gt;创建git版本库&lt;/h2&gt;
-
-&lt;p&gt;登录到自己的Github账户，选择New repository，Project Name命名为：”你的用户名”.github.com，例如我的就叫“guolf.github.com”。&lt;/p&gt;
-
-&lt;p&gt;完成后在本地克隆jekyll-bootstrap模版，运行命令：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/plusjade/jekyll-bootstrap.git USERNAME.github.com
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;将jekyll-bootstrap模版克隆到本地USERNAME.github.com文件夹下。&lt;/p&gt;
-
-&lt;p&gt;然后cd到文件夹内运行命令：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;jekyll&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serve&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;成功后打开浏览器输入地址：&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:4000&lt;/code&gt; 即可浏览本地生成的页面。&lt;/p&gt;
-
-&lt;h2 id=&quot;section&quot;&gt;绑定域名&lt;/h2&gt;
-
-&lt;p&gt;创建CNAME文件，内容是你的域名。比如： guolf.com
-登录域名DNS解析页面，如果是绑定顶级域名，则增加一条A记录，指向[username].github.io所对应的IP。可通过ping命令获得。&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;C:\Users\User&amp;gt;ping guolf.github.io
-正在 Ping github.map.fastly.net [103.245.222.133] 具有 32 字节的数据:
-来自 103.245.222.133 的回复: 字节=32 时间=64ms TTL=49
-来自 103.245.222.133 的回复: 字节=32 时间=65ms TTL=49
-来自 103.245.222.133 的回复: 字节=32 时间=63ms TTL=49
-来自 103.245.222.133 的回复: 字节=32 时间=63ms TTL=49
-103.245.222.133 的 Ping 统计信息:
-    数据包: 已发送 = 4，已接收 = 4，丢失 = 0 (0% 丢失)，
-往返行程的估计时间(以毫秒为单位):
-    最短 = 63ms，最长 = 65ms，平均 = 63ms
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;通过上述可得知，guolf.github.io所对应的Ip为103.245.222.133。&lt;/p&gt;
-
-&lt;p&gt;增加两条A记录，@、WWW  均指向103.245.222.133&lt;/p&gt;
-
-&lt;p&gt;如果是二级域名，通过增加解析CNAME记录.
-CNAME文件内容为blog.52dev.net
-增加一条CNAME记录，主机记录填写blog,记录值填写&lt;code class=&quot;highlighter-rouge&quot;&gt;guolf.github.io&lt;/code&gt;即可。&lt;/p&gt;
-
-</description>
-        <pubDate>Tue, 03 Feb 2015 00:00:00 +0800</pubDate>
-        <link>http://blog.52dev.net/blog/2015/02/03/%E5%88%A9%E7%94%A8Github-+-Jekyll-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
-        <guid isPermaLink="true">http://blog.52dev.net/blog/2015/02/03/%E5%88%A9%E7%94%A8Github-+-Jekyll-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
-        
-        <category>github</category>
-        
-        <category>jekyll</category>
         
         
         <category>blog</category>
