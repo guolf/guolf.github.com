@@ -106,6 +106,133 @@
 		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 			
 <div class="post-preview">
+    <a href="/blog/2016/12/15/Genymotion-unable-create-virtual-device/">
+        <h2 class="post-title">
+            genymotion unable create virtual device
+        </h2>
+        
+        <div class="post-content-preview">
+            genymotion有时因网络问题，无法下载，提示超时。
+
+
+
+解决方法：
+
+查看genymotion日志，找到下载URL，手动下载
+
+cat ~/.Genymobile/genymotion.log
+
+
+
+
+
+http://dl.genymotion.com/dists/5.0.0/ova/...
+        </div>
+    </a>
+    <p class="post-meta">Posted by guolf on December 15, 2016</p>
+</div>
+
+<hr>
+
+<div class="post-preview">
+    <a href="/blog/2016/12/13/oracle-space-size/">
+        <h2 class="post-title">
+            oracle表空间占用情况查看
+        </h2>
+        
+        <div class="post-content-preview">
+            查询每个表空间大小
+
+
+select b.file_id "文件ID号",
+       b.tablespace_name "表空间名",
+       b.bytes / 1024 / 1024 || 'M' "字节数",
+       (b.bytes - sum(nvl(a.bytes...
+        </div>
+    </a>
+    <p class="post-meta">Posted by guolf on December 13, 2016</p>
+</div>
+
+<hr>
+
+<div class="post-preview">
+    <a href="/blog/2016/12/12/mac-python-splinter/">
+        <h2 class="post-title">
+            splinter安装与使用
+        </h2>
+        
+        <div class="post-content-preview">
+            安装splinter
+
+pip intall splinter
+
+
+
+安装chromedriver
+
+下载地址 https://chromedriver.storage.googleapis.com/index.html
+根据本机安装的chrome版本选择相应的版本。
+
+----------C...
+        </div>
+    </a>
+    <p class="post-meta">Posted by guolf on December 12, 2016</p>
+</div>
+
+<hr>
+
+<div class="post-preview">
+    <a href="/blog/2016/11/26/python-excel/">
+        <h2 class="post-title">
+            python3批量处理excel文件生成sql语句
+        </h2>
+        
+        <div class="post-content-preview">
+            安装xlrd
+
+pip intall xlrd
+
+
+
+遍历获取Excel文件
+
+def get_all_excel(rootDir): 
+	list_dirs = os.walk(rootDir) 
+	for root, dirs, files in list_dirs: 
+		for d i...
+        </div>
+    </a>
+    <p class="post-meta">Posted by guolf on November 26, 2016</p>
+</div>
+
+<hr>
+
+<div class="post-preview">
+    <a href="/blog/2016/11/25/sqlserver-note/">
+        <h2 class="post-title">
+            SQLServer中实现Slope\Avedev
+        </h2>
+        
+        <div class="post-content-preview">
+            Slope
+
+CREATE TABLE [test_slope](x FLOAT, y FLOAT)
+
+DECLARE
+@intCount INT
+SET @intCount = 1
+WHILE @intCount &lt; 11
+BEGIN
+INSERT INTO [test_slope]
+...
+        </div>
+    </a>
+    <p class="post-meta">Posted by guolf on November 25, 2016</p>
+</div>
+
+<hr>
+
+<div class="post-preview">
     <a href="/blog/2016/11/23/oracle-regexp/">
         <h2 class="post-title">
             Oracle正则表达式
@@ -118,29 +245,6 @@
 
 select regexp_substr('妊娠10周' ,'(孕|妊娠)([^"]*)周',1, 1) from dual;  
 select regexp_substr('孕10周' ,'(孕|妊娠)([^"]*)周',1, 1) f...
-        </div>
-    </a>
-    <p class="post-meta">Posted by guolf on November 23, 2016</p>
-</div>
-
-<hr>
-
-<div class="post-preview">
-    <a href="/blog/2016/11/23/android-note/">
-        <h2 class="post-title">
-            Android开发笔记
-        </h2>
-        
-        <div class="post-content-preview">
-            gradle
-
-多渠道打包
-gradle多渠道打包，自定义包名、应用名称，自定义变量。UPDATE_ID可通过BuildConfig.UPDATE_ID获取。
-
-productFlavors {
-	demo {
-		applicationId "com.android.kfzs.demo"
-	...
         </div>
     </a>
     <p class="post-meta">Posted by guolf on November 23, 2016</p>
@@ -206,89 +310,6 @@ fastjson
         </div>
     </a>
     <p class="post-meta">Posted by guolf on April 1, 2016</p>
-</div>
-
-<hr>
-
-<div class="post-preview">
-    <a href="/2016/03/27/Android%E5%BA%94%E7%94%A8%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91%E4%B9%8B%E6%BA%90%E7%A0%81%E5%AE%89%E5%85%A8/">
-        <h2 class="post-title">
-            Android应用安全开发之源码安全
-        </h2>
-        
-        <div class="post-content-preview">
-            
-本文转载自乌云知识库-移动安全
-
-简介
-Android apk很容易通过逆向工程进行反编译，从而是其代码完全暴露给攻击者，使apk面临破解，软件逻辑修改，插入恶意代码，替换广告商ID等风险。我们可以采用以下方法对apk进行保护.
-
-混淆保护
-
-混淆是一种用来隐藏程序意图的技术，可以增加代码阅...
-        </div>
-    </a>
-    <p class="post-meta">Posted by guolf on March 27, 2016</p>
-</div>
-
-<hr>
-
-<div class="post-preview">
-    <a href="/blog/2016/03/25/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">
-        <h2 class="post-title">
-            nginx反向代理
-        </h2>
-        
-        <div class="post-content-preview">
-            网站部署
-IIS网站绑定端口801，Tomcat绑定端口8080，将nginx目录下的nginx.conf文件修改内容如下
-
-#user  nobody;
-worker_processes  1;
-#error_log  logs/error.log;
-#error_log  logs/err...
-        </div>
-    </a>
-    <p class="post-meta">Posted by guolf on March 25, 2016</p>
-</div>
-
-<hr>
-
-<div class="post-preview">
-    <a href="/blog/2016/03/14/mac%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/">
-        <h2 class="post-title">
-            mac日常笔记
-        </h2>
-        
-        <div class="post-content-preview">
-            批量转换文件编码
-
-cd进入目标文件，执行命令将目录下所有文件转换成UTF-8编码，并保存到指定文件夹
-
-find . -type f -exec bash -c 'iconv -f GB18030 "{}" 1&gt;/dev/null 2&gt;/dev/null &amp;&amp; i...
-        </div>
-    </a>
-    <p class="post-meta">Posted by guolf on March 14, 2016</p>
-</div>
-
-<hr>
-
-<div class="post-preview">
-    <a href="/blog/2016/02/21/Android%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/">
-        <h2 class="post-title">
-            Android日常笔记
-        </h2>
-        
-        <div class="post-content-preview">
-            drawableRight添加单击事件
-
-mTelnum.setOnTouchListener(new View.OnTouchListener() {
-	@Override
-	public boolean onTouch(View v, MotionEvent event) {
-		if(e...
-        </div>
-    </a>
-    <p class="post-meta">Posted by guolf on February 21, 2016</p>
 </div>
 
 <hr>

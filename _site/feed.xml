@@ -5,9 +5,387 @@
     <description>blog.52dev.net | guolf </description>
     <link>http://blog.52dev.net/</link>
     <atom:link href="http://blog.52dev.net/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 23 Nov 2016 17:11:14 +0800</pubDate>
-    <lastBuildDate>Wed, 23 Nov 2016 17:11:14 +0800</lastBuildDate>
+    <pubDate>Fri, 16 Dec 2016 12:14:15 +0800</pubDate>
+    <lastBuildDate>Fri, 16 Dec 2016 12:14:15 +0800</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
+    
+      <item>
+        <title>genymotion unable create virtual device</title>
+        <description>&lt;p&gt;genymotion有时因网络问题，无法下载，提示超时。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/A2BC68FB-9DBC-432D-9811-6348924744CE.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;解决方法：&lt;/p&gt;
+
+&lt;p&gt;查看genymotion日志，找到下载URL，手动下载&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cat ~/.Genymobile/genymotion.log
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/D5C7B50E-EBE3-4F1F-9EF2-1AAE9673EF65.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;http://dl.genymotion.com/dists/5.0.0/ova/genymotion_vbox86p_5.0_160825_104023.ova
+&lt;/code&gt;即为需要下载的文件，将该文件下载后，拷贝至&lt;code class=&quot;highlighter-rouge&quot;&gt;/Users/guolf/.Genymobile/Genymotion/ova/genymotion_vbox86p_5.0_160825_104023.ova&lt;/code&gt;。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mv genymotion_vbox86p_5.0_160825_104023.ova /Users/guolf/.Genymobile/Genymotion/ova/genymotion_vbox86p_5.0_160825_104023.ova
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;重启genymotion,再次选择该模拟器，点击下载，几秒钟后就会显示下载完成，OK了。&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 15 Dec 2016 00:00:00 +0800</pubDate>
+        <link>http://blog.52dev.net/blog/2016/12/15/Genymotion-unable-create-virtual-device/</link>
+        <guid isPermaLink="true">http://blog.52dev.net/blog/2016/12/15/Genymotion-unable-create-virtual-device/</guid>
+        
+        <category>genymotion</category>
+        
+        
+        <category>blog</category>
+        
+      </item>
+    
+      <item>
+        <title>oracle表空间占用情况查看</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;查询每个表空间大小&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+select b.file_id &quot;文件ID号&quot;,
+       b.tablespace_name &quot;表空间名&quot;,
+       b.bytes / 1024 / 1024 || &#39;M&#39; &quot;字节数&quot;,
+       (b.bytes - sum(nvl(a.bytes, 0))) / 1024 / 1024 || &#39;M&#39; &quot;已使用&quot;,
+       sum(nvl(a.bytes, 0)) / 1024 / 1024 || &#39;M&#39; &quot;剩余空间&quot;,
+       100 - sum(nvl(a.bytes, 0)) / (b.bytes) * 100 &quot;占用百分比&quot;
+  from dba_free_space a, dba_data_files b
+ where a.file_id = b.file_id
+ group by b.tablespace_name, b.file_id, b.bytes
+ order by b.file_id;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;查询某个用户下所有表占用空间&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;select OWNER,
+        t.segment_name,
+        t.segment_type,
+        sum(t.bytes / 1024 / 1024) as &quot;size(M)&quot;
+   from dba_segments t
+  where t.owner = &#39;YPDZJG&#39;
+    and t.segment_type = &#39;TABLE&#39;
+  group by OWNER, t.segment_name, t.segment_type
+  order by &quot;size(M)&quot; desc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Tue, 13 Dec 2016 00:00:00 +0800</pubDate>
+        <link>http://blog.52dev.net/blog/2016/12/13/oracle-space-size/</link>
+        <guid isPermaLink="true">http://blog.52dev.net/blog/2016/12/13/oracle-space-size/</guid>
+        
+        <category>Oracle</category>
+        
+        
+        <category>blog</category>
+        
+      </item>
+    
+      <item>
+        <title>splinter安装与使用</title>
+        <description>&lt;h2 id=&quot;splinter&quot;&gt;安装splinter&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip intall splinter
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;chromedriver&quot;&gt;安装chromedriver&lt;/h2&gt;
+
+&lt;p&gt;下载地址 &lt;code class=&quot;highlighter-rouge&quot;&gt;https://chromedriver.storage.googleapis.com/index.html&lt;/code&gt;
+根据本机安装的chrome版本选择相应的版本。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;----------ChromeDriver v2.26 (2016-12-09)----------
+Supports Chrome v53-55
+Resolved issue 1607: Chrome 57+ with perf logs enabled fails with &quot;unexpected command response&quot; [[&#39;OS-All&#39;, &#39;Pri-1&#39;]]
+Resolved issue 1502: sendKeys(): SPACE key does not work on Chrome 53 [[&#39;OS-All&#39;, &#39;Pri-1&#39;]]
+Resolved issue 984: Extend ChromeDriver capabilities to cover network throttling feature from Chrome DevTools [[&#39;OS-All&#39;, &#39;Pri-2&#39;]]
+Resolved issue 877: UnhandledAlertException not being propagated upwards [[&#39;OS-All&#39;, &#39;Pri-2&#39;]]
+Resolved issue 1578: Flash plugin blocked after updating Chrome browser [[&#39;OS-All&#39;, &#39;Pri-2&#39;]]
+Resolved issue 1617: Fullscreen command is not recognised [[&#39;OS-All&#39;, &#39;Pri-3&#39;]]
+Resolved issue 839: clear does not work on input type number with string value [[&#39;Pri-3&#39;]]
+Resolved issue 1500: &quot;Could not handle JavaScript dialog&quot; error occurs randomly when accepting confirmation dialogs. [[]]
+Resolved issue 1541: find element with empty tag is raising wrong exception in findElement [[]]
+Resolved issue 1540: empty tagname value should raise an error when doing findElements [[]]
+
+----------ChromeDriver v2.25 (2016-10-25)----------
+Supports Chrome v53-55
+Resolved issue 1547: Chromedriver crashes during event Runtime.consoleAPICalled [[&#39;OS-All&#39;, &#39;Pri-1&#39;]]
+Resolved issue 1514: GetLog command times out if an alert is showing [[&#39;OS-All&#39;, &#39;Pri-1&#39;]]
+Resolved issue 1460: &quot;Disable Developer Mode Extensions&quot; exists on Mac, but not Windows [[]]
+
+----------ChromeDriver v2.24 (2016-09-09)----------
+Supports Chrome v52-54
+Resolved issue 1497: GetLog fails when the current window is closed [[&#39;OS-All&#39;, &#39;Pri-0&#39;]]
+Resolved issue 1495: ChromeDriver crashes with &quot;Check failed: !page_load_strategy_.empty()&quot; [[&#39;OS-All&#39;, &#39;Pri-0&#39;]]
+Resolved issue 1463: SessionNotCreatedException: Runtime.evaluate missing &#39;wasThrown&#39; on Chrome 54+ [[&#39;OS-All&#39;, &#39;Pri-0&#39;]]
+Resolved issue 1484: SendKeys of a Tab Key has no effect in Chrome 53 [[&#39;OS-All&#39;, &#39;Pri-1&#39;]]
+Resolved issue 1431: GetLog command does not work for Chrome 54+ [[&#39;OS-All&#39;, &#39;Pri-1&#39;]]
+Resolved issue 1411: sendKeys generates events that are missing some fields [[&#39;OS-All&#39;, &#39;Pri-1&#39;]]
+Resolved issue 1451: Chrome 54+ session not created exception: Runtime.executionContextCreated has invalid &#39;context&#39; [[&#39;Pri-1&#39;]]
+Resolved issue 984: Extend ChromeDriver capabilities to cover network throttling feature from Chrome DevTools [[&#39;OS-All&#39;, &#39;Pri-2&#39;]]
+Resolved issue 1454: Net::ReadTimeout error on launching Canary v54 through RemoteWebDriver [[]]
+
+----------ChromeDriver v2.23 (2016-08-04)----------
+Supports Chrome v51-53
+Resolved issue 1378: Android 6: Intitialization of Chrome driver fails when Chrome/Webview process is in running (R) state [[&#39;OS-Android&#39;, &#39;Pri-1&#39;]]
+Resolved issue 1379: Chromedriver does not catch all available browser console log entries [[&#39;OS-All&#39;, &#39;Pri-2&#39;]]
+
+----------ChromeDriver v2.22 (2016-06-06)----------
+Supports Chrome v49-52
+Resolved issue 1348: Timeout error while navigating to URL on Chrome 51+ [[&#39;OS-All&#39;, &#39;Pri-0&#39;]]
+Resolved issue 1381: Timeout error occurs when alert dialog is displayed on Chrome 52+ [[&#39;OS-All&#39;, &#39;Pri-1&#39;, &#39;merge-merged-2743&#39;]]
+Resolved issue 1339: Failure when executing JS in a content script context [[&#39;OS-All&#39;, &#39;Pri-1&#39;]]
+Resolved issue 1387: ChromeDriver hangs when calling driver.get() for same-process navigations [[&#39;OS-All&#39;, &#39;Pri-1&#39;]]
+Resolved issue 1365: Touch emulation is not working under mobile emulation in Chrome 50+ [[&#39;OS-All&#39;, &#39;Pri-1&#39;]]
+Resolved issue 1224: Chrome WebDriver throws an exception when trying to click a button inside a frame  [[&#39;OS-All&#39;, &#39;Pri-2&#39;]]
+Resolved issue 107: ChromeDriver Won&#39;t Switch To Frame inside nested frameset [[&#39;OS-All&#39;, &#39;Pri-2&#39;]]
+Resolved issue 1368: ExecuteScript returns &quot;Cannot read property &#39;document&#39; of null&quot; [[]]
+Resolved issue 1355: Session not created exception when connecting to existing browser on localhost [[]]
+Resolved issue 1331: &quot;chromeOptions.excludeSwitches&quot; is not working on Android [[]]
+
+----------ChromeDriver v2.21 (2016-01-28)----------
+Supports Chrome v46-50
+Resolved issue 1276: empty FindElement response is returned while trying to find element with tagname object/embed [[&#39;OS-All&#39;, &#39;Pri-1&#39;]]
+Resolved issue 1272: GET url returns &quot;data:text/html,chromewebdata&quot; [[&#39;OS-All&#39;, &#39;Pri-2&#39;]]
+Resolved issue 1310: ChromeDriver hangs (and times out) when inspecting inactive background pages [[&#39;OS-All&#39;, &#39;Pri-2&#39;]]
+Resolved issue 824: ChromeDriver creates two cookies when the cookie to add contains the domain [[&#39;OS-All&#39;, &#39;Pri-2&#39;]]
+Resolved issue 1274: ExecuteScript sends script to wrong execution context [[&#39;OS-All&#39;, &#39;Pri-2&#39;]]
+Resolved issue 1249: Change &quot;get current URL&quot; behavior in ChromeDriver [[&#39;OS-All&#39;, &#39;Pri-2&#39;]]
+Resolved issue 904: include Alert text in UnhandledAlertError stack trace [[&#39;OS-All&#39;, &#39;Pri-2&#39;]]
+Resolved issue 474: getAttribute() fails when attribute name has colon (:) character [[&#39;OS-All&#39;, &#39;Pri-3&#39;]]
+Resolved issue 1245: Unable to switch to 1st opened window in session [[]]
+Resolved issue 1290: Cannot access elements from subframes [[]]
+Resolved issue 1261: getTitle() should return empty string instead of page url when page title is empty [[]]
+Resolved issue 1238: testExecuteInRemovedFrame fails on waterfall bots [[&#39;OS-All&#39;]]
+Resolved issue 1246: Chromedriver version number is not displayed in logs/ getCapabilities() [[&#39;OS-All&#39;]]
+
+----------ChromeDriver v2.20 (2015-10-08)----------
+Supports Chrome v43-48
+Resolved issue 1225: RESPONSE InitSession unknown error: Device &amp;lt;device_id&amp;gt; is not online [[&#39;OS-Android&#39;, &#39;Pri-0&#39;]]
+Resolved issue 960: ChromeDriver support to access WebView elements [[&#39;OS-All&#39;, &#39;Pri-2&#39;]]
+Resolved issue 1229: Spec violation: /sessions endpoint returns session ID at `sessionId` key instead of `id` key [[&#39;OS-All&#39;, &#39;Pri-2&#39;]]
+
+----------ChromeDriver v2.19 (2015-08-28)----------
+Supports Chrome v43-47
+Resolved issue 1167: Various issues with ChromeDriver navigation tracker [[&#39;OS-All&#39;, &#39;Pri-1&#39;]]
+Resolved issue 1205: Chrome crashes when enabling touch emulation [[&#39;OS-Mac&#39;, &#39;OS-Windows&#39;, &#39;Pri-1&#39;]]
+Resolved issue 1142: cookies&#39; httponly attribute is not returned [[&#39;Pri-2&#39;]]
+
+----------ChromeDriver v2.18 (2015-08-19)----------
+Supports Chrome v43-46
+Resolved issue 1158: Unable to find elements after installing Chrome 44 [[&#39;ChromeDriver-2.17&#39;, &#39;OS-All&#39;, &#39;Pri-1&#39;]]
+Resolved issue 635: Implement touch actions for android chrome [[&#39;OS-Android&#39;, &#39;Pri-2&#39;]]
+Resolved issue 1194: unknown error: cannot determine loading status from disconnected: received Inspector.detached event [[]]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;下载完成后后，将文件解压缩至/Users/name/Documents/WebDriver下，将该目录添加至环境变量中&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Open up Terminal.
+Run sudo nano /etc/paths.
+Enter your password.
+Go to the bottom of the file and enter the path you wish to add.
+My PATH looks like: /Users/name/Documents/WebDriver.
+Control-x to quit.
+Y to save.
+Press enter to confirm.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;使用&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;from splinter.browser import Browser
+
+b = Browser(&#39;chrome&#39;)
+b.visit(&quot;http://www.baidu.com&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;将使用chrome浏览器打开baidu.com网页。&lt;/p&gt;
+</description>
+        <pubDate>Mon, 12 Dec 2016 00:00:00 +0800</pubDate>
+        <link>http://blog.52dev.net/blog/2016/12/12/mac-python-splinter/</link>
+        <guid isPermaLink="true">http://blog.52dev.net/blog/2016/12/12/mac-python-splinter/</guid>
+        
+        <category>python</category>
+        
+        
+        <category>blog</category>
+        
+      </item>
+    
+      <item>
+        <title>python3批量处理excel文件生成sql语句</title>
+        <description>&lt;h2 id=&quot;xlrd&quot;&gt;安装xlrd&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip intall xlrd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;excel&quot;&gt;遍历获取Excel文件&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;def get_all_excel(rootDir): 
+	list_dirs = os.walk(rootDir) 
+	for root, dirs, files in list_dirs: 
+		for d in dirs: 
+			get_all_excel(rootDir = os.path.join(root, d))
+		for f in files:
+			filename = os.path.join(root,f)
+			if &#39;xls&#39; in filename:
+				#excel_by_name(filename)
+				print(os.path.join(root, f))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;excelsql&quot;&gt;读取excel生成SQL语句&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;def excel_by_name(file,colnameindex=0,by_index=0):
+    list =[]
+    data = xlrd.open_workbook(file)
+    table = data.sheets()[0]
+    nrows = table.nrows #行数
+    ncols = table.ncols #列数
+    colnames =  table.row_values(colnameindex)
+    sql = &quot;&quot;
+    for rownum in range(1,nrows):
+        row = table.row_values(rownum)
+        if row:
+            sInset = &quot;insert into temp (oname,oaddress,username,superclass,telnum,telname)&quot;
+            sValues = &quot;values (&quot;
+            for i in range(len(colnames)):
+                if isinstance(row[i],int):
+                    sValues += &quot;&#39;&quot; + str(row[i]) + &quot;&#39;,&quot;
+                if isinstance(row[i],float):
+                    sValues += &quot;&#39;&quot; + str(int(row[i])) + &quot;&#39;,&quot;
+                else:
+                    sValues += &quot;&#39;&quot; + row[i] + &quot;&#39;,&quot;
+            sql += sInset[:-1]+&quot;)&quot; + sValues[:-1]+&quot;);&quot; + &quot;\r\n&quot;
+	pos = file.rfind(&quot;.&quot;) #lastIndexof
+    f1 = open(file[:pos] &#39;.sql&#39;,&#39;w&#39;)
+    f1.write(sql)
+    f1.close()
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;完整代码&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+import os,sys,xlrd
+
+def get_all_excel(rootDir): 
+	list_dirs = os.walk(rootDir) 
+	for root, dirs, files in list_dirs: 
+		for d in dirs: 
+			get_all_excel(rootDir = os.path.join(root, d))
+		for f in files:
+			filename = os.path.join(root,f)
+			if &#39;xls&#39; in filename:
+				excel_by_name(filename)
+				print(os.path.join(root, f))
+
+def excel_by_name(file,colnameindex=0,by_index=0):
+    list =[]
+    data = xlrd.open_workbook(file)
+    table = data.sheets()[0]
+    nrows = table.nrows #行数
+    ncols = table.ncols #列数
+    colnames =  table.row_values(colnameindex)
+    sql = &quot;&quot;
+    for rownum in range(1,nrows):
+        row = table.row_values(rownum)
+        if row:
+            sInset = &quot;insert into temp (oname,oaddress,username,superclass,telnum,telname)&quot;
+            sValues = &quot;values (&quot;
+            for i in range(len(colnames)):
+                if isinstance(row[i],int):
+                    sValues += &quot;&#39;&quot; + str(row[i]) + &quot;&#39;,&quot;
+                if isinstance(row[i],float):
+                    sValues += &quot;&#39;&quot; + str(int(row[i])) + &quot;&#39;,&quot;
+                else:
+                    sValues += &quot;&#39;&quot; + row[i] + &quot;&#39;,&quot;
+            sql += sInset[:-1]+&quot;)&quot; + sValues[:-1]+&quot;);&quot; + &quot;\r\n&quot;
+	pos = file.rfind(&quot;.&quot;) #lastIndexof
+    f1 = open(file[:pos] &#39;.sql&#39;,&#39;w&#39;)
+    f1.write(sql)
+    f1.close()
+
+def main():
+	get_all_excel(rootDir=&quot;/Users/guolf/Documents/temp&quot;)
+
+if __name__==&quot;__main__&quot;:
+    main()
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Sat, 26 Nov 2016 00:00:00 +0800</pubDate>
+        <link>http://blog.52dev.net/blog/2016/11/26/python-excel/</link>
+        <guid isPermaLink="true">http://blog.52dev.net/blog/2016/11/26/python-excel/</guid>
+        
+        <category>python</category>
+        
+        
+        <category>blog</category>
+        
+      </item>
+    
+      <item>
+        <title>SQLServer中实现Slope\Avedev</title>
+        <description>&lt;h2 id=&quot;slope&quot;&gt;Slope&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CREATE TABLE [test_slope](x FLOAT, y FLOAT)
+
+DECLARE
+@intCount INT
+SET @intCount = 1
+WHILE @intCount &amp;lt; 11
+BEGIN
+INSERT INTO [test_slope]
+SELECT  @intCount, 5.12 * @intCount + 7 * rand()
+SET @intCount = @intCount + 1
+END
+
+--– Get the Slope
+SELECT (count(x)*sum(x*y) - sum(x)* sum(y))/(count(x)*sum(x*x) - sum(x)* sum(x)) FROM [test_slope]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;avedev&quot;&gt;Avedev&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CREATE TABLE [test_avedev]([score] [float] NULL)
+
+--insert data ..
+
+begin
+declare @v_avg float;
+declare @v_count int;
+select @v_avg = AVG(score),@v_count =COUNT(0) from test_avedev; 
+-- Get the Avedev
+select SUM(ABS(score-@v_avg))/@v_count from test_avedev;
+end;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Fri, 25 Nov 2016 00:00:00 +0800</pubDate>
+        <link>http://blog.52dev.net/blog/2016/11/25/sqlserver-note/</link>
+        <guid isPermaLink="true">http://blog.52dev.net/blog/2016/11/25/sqlserver-note/</guid>
+        
+        <category>SQLServer</category>
+        
+        
+        <category>blog</category>
+        
+      </item>
     
       <item>
         <title>Oracle正则表达式</title>
@@ -31,54 +409,6 @@ select regexp_substr(&#39;孕10周&#39; ,&#39;(孕|妊娠)([^&quot;]*)周&#39;,1
         <guid isPermaLink="true">http://blog.52dev.net/blog/2016/11/23/oracle-regexp/</guid>
         
         <category>Oracle</category>
-        
-        
-        <category>blog</category>
-        
-      </item>
-    
-      <item>
-        <title>Android开发笔记</title>
-        <description>&lt;h2 id=&quot;gradle&quot;&gt;gradle&lt;/h2&gt;
-
-&lt;h3 id=&quot;section&quot;&gt;多渠道打包&lt;/h3&gt;
-&lt;p&gt;gradle多渠道打包，自定义包名、应用名称，自定义变量。UPDATE_ID可通过&lt;code class=&quot;highlighter-rouge&quot;&gt;BuildConfig.UPDATE_ID&lt;/code&gt;获取。&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;productFlavors {
-	demo {
-		applicationId &quot;com.android.kfzs.demo&quot;
-		buildConfigField &quot;String&quot;, &quot;UPDATE_ID&quot;, &quot;\&quot;6f272119-7253-453e-a685-21163da46d94\&quot;&quot;
-		resValue &quot;string&quot;, &quot;app_name&quot;, &quot;APPNAME-演示版&quot;
-		manifestPlaceholders = [BUGLY_APP_CHANNEL_VALUE: &quot;demo&quot;]
-	}
-	prod {
-		applicationId &quot;com.android.kfzs&quot;
-		buildConfigField &quot;String&quot;, &quot;UPDATE_ID&quot;, &quot;\&quot;11e8e8e1-ff71-4521-ab70-e8b8c8966611\&quot;&quot;
-		resValue &quot;string&quot;, &quot;app_name&quot;, &quot;APPNAME&quot;
-		manifestPlaceholders = [BUGLY_APP_CHANNEL_VALUE: &quot;prod&quot;]
-	}
-}
-            
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;每个渠道使用不同的icon,在src目录下创建渠道名称文件夹，如图所示
-&lt;img src=&quot;/img/58780917-8FE8-4374-8828-70EAEC2B2E6A.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;gradle-&quot;&gt;gradle 排除指定模块&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;compile (&#39;com.github.czy1121:noticeview:1.0.0&#39;){
-	exclude group: &quot;com.android.support&quot;, module: &quot;appcompat-v7&quot;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-</description>
-        <pubDate>Wed, 23 Nov 2016 00:00:00 +0800</pubDate>
-        <link>http://blog.52dev.net/blog/2016/11/23/android-note/</link>
-        <guid isPermaLink="true">http://blog.52dev.net/blog/2016/11/23/android-note/</guid>
-        
-        <category>Android</category>
         
         
         <category>blog</category>
@@ -907,299 +1237,6 @@ nginx -s stop
         <category>nginx</category>
         
         <category>tomcat</category>
-        
-        
-        <category>blog</category>
-        
-      </item>
-    
-      <item>
-        <title>mac日常笔记</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;批量转换文件编码&lt;/h2&gt;
-
-&lt;p&gt;cd进入目标文件，执行命令将目录下所有文件转换成UTF-8编码，并保存到指定文件夹&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;find . -type f -exec bash -c &#39;iconv -f GB18030 &quot;{}&quot; 1&amp;gt;/dev/null 2&amp;gt;/dev/null &amp;amp;&amp;amp; iconv -f GB18030 -t utf-8 &quot;{}&quot; &amp;gt; /Users/guolf/Documents/workspace/test/src/&quot;{}&quot;&#39; \; 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;section-1&quot;&gt;查找占用端口&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 将端口替换成所需,将会出现占用端口进程信息(lsof -i tcp:port)
-lsof -i tcp:8080
-# 找到占用端口进程pid，使用kill命令杀掉该进程 kill pid
-kill 1234
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;viutf-bombom&quot;&gt;使用vi将UTF bom格式转无bom格式&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:set nobomb
-:wq
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;macapache&quot;&gt;mac自带Apache&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#查看版本
-sudo apachectl -v
-#启动
-sudo apachectl start
-#网站目录
-open /Library/WebServer/Documents/
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;section-2&quot;&gt;添加文件可执行权限&lt;/h2&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chmod a+x ./文件名
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;ntfs-3gmacntfs&quot;&gt;使用ntfs-3g实现mac的ntfs写权限&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Remove osxfuse if installed via homebrew:
-&amp;gt; brew uninstall osxfuse
-Install osxfuse binary and choose to install the MacFUSE compatibility layer:
-http://sourceforge.net/projects/osxfuse/files/latest/download?source=files
-Reboot (optional but recommended by osxfuse)
-Install ntfs-3g via homebrew:
-&amp;gt; brew update &amp;amp;&amp;amp; brew install ntfs-3g
-
-or  try
-
-brew install Caskroom/cask/osxfuse then brew install homebrew/fuse/ntfs-3g
-
-Link mount_ntfs:
-&amp;gt; sudo mv /sbin/mount_ntfs /sbin/mount_ntfs.original
-&amp;gt; sudo ln -s /usr/local/Cellar/ntfs-3g/2015.3.14/sbin/mount_ntfs /sbin/mount_ntfs
-The output of the following should be as below:
-&amp;gt; ls -l /sbin/mount_ntfs*
-/sbin/mount_ntfs -&amp;gt; /usr/local/Cellar/ntfs-3g/2014.2.15/sbin/mount_ntfs
-/sbin/mount_ntfs.original -&amp;gt; /System/Library/Filesystems/ntfs.fs/Contents/Resources/mount_ntfs
-Reboot and voila
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;android&quot;&gt;Android设备管家&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.airdroid.com/zh-cn/&quot;&gt;AirDroid&lt;/a&gt;是最好用的安卓设备管家，在电脑可以接收设备的通知、回复短信，电脑与设备高效互传文件，AirMirror更能实现电脑完全控制安卓设备。完美支持Mac。&lt;/p&gt;
-
-&lt;h2 id=&quot;gif&quot;&gt;gif录制&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.cockos.com/licecap/&quot;&gt;licecap&lt;/a&gt;
-免费开源录制 gif 软件，直观易用，功能灵活&lt;/p&gt;
-
-&lt;h1 id=&quot;chrome-errunsafeport&quot;&gt;Chrome浏览器 ERR_UNSAFE_PORT错误&lt;/h1&gt;
-&lt;p&gt;终端输入以下命令，将87替换成目标端口。&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;open /Applications/Google\ Chrome.app --args --explicitly-allowed-ports=87
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-</description>
-        <pubDate>Mon, 14 Mar 2016 00:00:00 +0800</pubDate>
-        <link>http://blog.52dev.net/blog/2016/03/14/mac%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/</link>
-        <guid isPermaLink="true">http://blog.52dev.net/blog/2016/03/14/mac%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/</guid>
-        
-        <category>mac</category>
-        
-        
-        <category>blog</category>
-        
-      </item>
-    
-      <item>
-        <title>Android日常笔记</title>
-        <description>&lt;h2 id=&quot;drawableright&quot;&gt;drawableRight添加单击事件&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mTelnum.setOnTouchListener(new View.OnTouchListener() {
-	@Override
-	public boolean onTouch(View v, MotionEvent event) {
-		if(event.getAction()== MotionEvent.ACTION_UP) {
-			Drawable drawableRight = ((EditText) v).getCompoundDrawables()[2];
-				if (drawableRight != null &amp;amp;&amp;amp; event.getRawX() &amp;gt;= (v.getRight() - drawableRight.getBounds().width())){
-					Toast.makeText(TestActivity.this, &quot;click...&quot;, Toast.LENGTH_SHORT).show();
-				}
-			}
-			return false;
-		}
-});
-        
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;pullxml&quot;&gt;pull解析xml包含&amp;amp;会报错&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;xmlStr.replace(&quot;&amp;amp;&quot;,&quot;&amp;amp;amp;&quot;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;section&quot;&gt;隐藏底部虚拟导航条&lt;/h2&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;section-1&quot;&gt;魅族&lt;/h2&gt;
-&lt;p&gt;Flyme OS 4.5.0.2Q版本运行cordova应用，点击下拉菜单会崩溃。将系统版本升级即可。&lt;/p&gt;
-</description>
-        <pubDate>Sun, 21 Feb 2016 00:00:00 +0800</pubDate>
-        <link>http://blog.52dev.net/blog/2016/02/21/Android%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/</link>
-        <guid isPermaLink="true">http://blog.52dev.net/blog/2016/02/21/Android%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/</guid>
-        
-        <category>android</category>
-        
-        
-        <category>blog</category>
-        
-      </item>
-    
-      <item>
-        <title>Android反编译，重新打包</title>
-        <description>&lt;h2 id=&quot;android&quot;&gt;Android反编译、重新打包&lt;/h2&gt;
-
-&lt;h3 id=&quot;apktool&quot;&gt;安装apktool&lt;/h3&gt;
-
-&lt;p&gt;参考&lt;a href=&quot;http://ibotpeaches.github.io/Apktool/install/&quot;&gt;http://ibotpeaches.github.io/Apktool/install/&lt;/a&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 反编译
-$ apktool d testapp.apk
-I: Using Apktool 2.0.0 on testapp.apk
-I: Loading resource table...
-I: Decoding AndroidManifest.xml with resources...
-I: Loading resource table from file: 1.apk
-I: Regular manifest package...
-I: Decoding file-resources...
-I: Decoding values */* XMLs...
-I: Baksmaling classes.dex...
-I: Copying assets and libs...
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 反编译修改后重新打包
-$ apktool b test
-I: Using Apktool 2.0.1 on test
-I: Checking whether sources has changed...
-I: Smaling smali folder into classes.dex...
-I: Checking whether resources has changed...
-I: Building resources...
-I: Building apk file...
-I: Copying unknown files/dir..
-# 重新签名
-$ jarsigner -keystore /Users/guolf/.android/debug.keystore 
--storepass android -keypass android test.apk androiddebugkey 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;dex2jar&quot;&gt;安装dex2jar&lt;/h3&gt;
-
-&lt;h4 id=&quot;section&quot;&gt;下载安装文件&lt;/h4&gt;
-&lt;p&gt;&lt;a href=&quot;https://sourceforge.net/projects/dex2jar/files/&quot;&gt;https://sourceforge.net/projects/dex2jar/files/&lt;/a&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;section-1&quot;&gt;解压到指定位置&lt;/h4&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;unzip -x dex2jar-version.zip -d /home/username
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&quot;section-2&quot;&gt;反编译&lt;/h4&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 将apk反编译成.jar文件，然后可使用jd-gui打开
-sh /home/username/dex2jar-2.0/d2j-dex2jar.sh /home/username/someApk.apk
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;使用jd-gui查看源码，下载地址&lt;a href=&quot;http://jd.benow.ca/&quot;&gt;http://jd.benow.ca/&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sat, 19 Dec 2015 00:00:00 +0800</pubDate>
-        <link>http://blog.52dev.net/blog/2015/12/19/android%E5%8F%8D%E7%BC%96%E8%AF%91-%E9%87%8D%E6%96%B0%E6%89%93%E5%8C%85/</link>
-        <guid isPermaLink="true">http://blog.52dev.net/blog/2015/12/19/android%E5%8F%8D%E7%BC%96%E8%AF%91-%E9%87%8D%E6%96%B0%E6%89%93%E5%8C%85/</guid>
-        
-        <category>android</category>
-        
-        <category>apktool</category>
-        
-        <category>dex2jar</category>
-        
-        <category>jd-gui</category>
-        
-        
-        <category>blog</category>
-        
-      </item>
-    
-      <item>
-        <title>linux利用ssh key 免密码登陆</title>
-        <description>&lt;h2 id=&quot;ssh-keylinux&quot;&gt;利用ssh key验证登陆Linux服务器&lt;/h2&gt;
-&lt;p&gt;### 生成SSH Key&lt;/p&gt;
-
-&lt;h4 id=&quot;rsa-key-pair&quot;&gt;创建RSA Key Pair&lt;/h4&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-keygen -t rsa
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&quot;key&quot;&gt;输入key保存位置&lt;/h4&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Enter file in which to save the key (/home/demo/.ssh/id_rsa):
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Enter passphrase (empty for no passphrase):
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-keygen -t rsa
-Generating public/private rsa key pair.
-Enter file in which to save the key (/home/demo/.ssh/id_rsa): 
-Enter passphrase (empty for no passphrase): 
-Enter same passphrase again: 
-Your identification has been saved in /home/demo/.ssh/id_rsa.
-Your public key has been saved in /home/demo/.ssh/id_rsa.pub.
-The key fingerprint is:
-4a:dd:0a:c6:35:4e:3f:ed:27:38:8c:74:44:4d:93:67 demo@a
-The key&#39;s randomart image is:
-+--[ RSA 2048]----+
-|          .oo.   |
-|         .  o.E  |
-|        + .  o   |
-|     . = = .     |
-|      = S = .    |
-|     o + = +     |
-|      . o + o .  |
-|           . o   |
-|                 |
-+-----------------+
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;#### 将生成的id_rsa.pub拷贝到服务器&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;scp -p 1234 /home/demo/.ssh/id_rsa.pub root@server:/root/.ssh/
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;将id_rsa.pub重命名成authorized_keys&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd .ssh
-mv id_rsa.pub authorized_keys
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;#### 修改本机的ssh config
-config文件位于&lt;code class=&quot;highlighter-rouge&quot;&gt;~/.ssh/config&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Host myvps
-Hostname 104.XX.XXX.XX
-Port 1234
-User root
-IdentityFile ~/.ssh/id_rsa
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;然后直接 &lt;code class=&quot;highlighter-rouge&quot;&gt;ssh myvps&lt;/code&gt; 即可连接上远程服务器。&lt;/p&gt;
-</description>
-        <pubDate>Wed, 26 Aug 2015 00:00:00 +0800</pubDate>
-        <link>http://blog.52dev.net/blog/2015/08/26/ssh-key-login/</link>
-        <guid isPermaLink="true">http://blog.52dev.net/blog/2015/08/26/ssh-key-login/</guid>
-        
-        <category>linux</category>
-        
-        <category>ssh</category>
         
         
         <category>blog</category>
