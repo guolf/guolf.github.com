@@ -16,12 +16,7 @@ owner:
 gavatar: http://guolingfa.cn/Content/Themes/green/images/logo.jpg
 favicon: img/logo.png
 
-douban_username: 
-twitter_username: guolingfa
 github_username: guolf
-facebook_username: guolingfa
-weibo_username: 
-zhihu_username: guolingfa
 
 # Build settings
 # use Github Flavored Markdown !important
@@ -51,9 +46,6 @@ kramdown:
 
 gems :
   - jekyll-paginate
-
-# Comments
-duoshuo: dev52
 
 
 # Analytics and webmaster tools stuff goes here
